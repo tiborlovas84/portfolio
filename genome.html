@@ -1,0 +1,478 @@
+<!DOCTYPE html><!--  Last Published: Sun May 24 2026 09:52:27 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="65de6b7abc04c312dba66cc8" data-wf-site="6570531d0c28a8d6017f05a0">
+<head>
+  <meta charset="utf-8">
+  <title>Design System</title>
+  <meta content="Design System" property="og:title">
+  <meta content="Design System" name="twitter:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/tiborlovas.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Oswald:200,300,400,500,600,700","Inter:300,400,500,600,700","Poppins:300,400,500,600,700"]  }});</script>
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LGCNWB3M73"></script>
+  <script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('set', 'developer_id.dZGVlNj', true);gtag('js', new Date());gtag('config', 'G-LGCNWB3M73');</script><!--  Google Tag Manager  -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WGCXGMK6');</script>
+  <!--  End Google Tag Manager  -->
+  <!--  Hotjar Tracking Code for http://www.tiborlovas.com  -->
+  <script type="text/plain" cookie-consent="tracking">
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:866357,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+  <style>
+ ::selection {color: #ffffff; background: #6200FF;}
+ </style>
+</head>
+<body data-w-id="65de6b7abc04c312dba66cd1" style="filter:saturate(0%);opacity:0">
+  <div class="w-embed">
+    <style>
+/*
+https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=375&minRatio=1.25&maxFontSize=16&maxWidth=1440&maxRatio=1.65&steps=t-1%2Ct0%2Ct1%2Ct2%2Ct3%2Ct4%2C+t5&baseStep=t0&prefix=text-&decimals=2&useRems=on&remValue=16&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=375
+*/
+:root {
+	--text--t-1: clamp(0.74rem, -0.17vi + 0.78rem, 0.63rem);
+	--text--t0: clamp(1rem, 0vi + 1rem, 1rem);
+	--text--t1: clamp(1.35rem, 0.38vi + 1.26rem, 1.6rem);
+	--text--t2: clamp(1.82rem, 1.11vi + 1.56rem, 2.56rem);
+	--text--t3: clamp(2.46rem, 2.46vi + 1.88rem, 4.1rem);
+	--text--t4: clamp(3.32rem, 4.86vi + 2.18rem, 6.55rem);
+	--text--t5: clamp(4.48rem, 9.02vi + 2.37rem, 10.49rem);
+}
+/* @link https://utopia.fyi/space/calculator?c=375,16,1.333,1440,16,1.618,5,2,&s=2|0.25,2|3|4|5|6|7,s-l&g=s,l,xl,12 */
+:root {
+  --space--s025: clamp(0.1875rem, 0.1655rem + 0.0939vi, 0.25rem);
+  --space--s05: clamp(0.3125rem, 0.2465rem + 0.2817vi, 0.5rem);
+  --space--s1: clamp(0.625rem, 0.493rem + 0.5634vi, 1rem);
+  --space--s2: clamp(0.9375rem, 0.7394rem + 0.8451vi, 1.5rem);
+  --space--s3: clamp(1.25rem, 0.9859rem + 1.1268vi, 2rem);
+  --space--s4: clamp(1.875rem, 1.4789rem + 1.6901vi, 3rem);
+  --space--s5: clamp(2.5rem, 1.9718rem + 2.2535vi, 4rem);
+  --space--s6: clamp(3.75rem, 2.9577rem + 3.3803vi, 6rem);
+  --space--s7: clamp(5rem, 3.9437rem + 4.507vi, 8rem);
+  --space--s8: clamp(7.5rem, 5.9155rem + 6.7606vi, 12rem);
+  --space--s9: clamp(10rem, 7.8873rem + 9.0141vi, 16rem);
+}
+:root {
+/*  --grid--g1: 8.333333333333334%;
+  --grid--g2: 16.666666666666668%;
+  --grid--g3: 25%;
+  --grid--g4: 33.333333333333336%;
+  --grid--g5: 41.66666666666667%;
+  --grid--g6: 50%;
+  --grid--g7: 58.333333333333336%;
+  --grid--g8: 66.66666666666667%;
+  --grid--g9: 75%;
+  --grid--g10: 83.33333333333336%;
+  --grid--g11: 91.66666666666667%;
+  --grid--g12: 100%;*/
+}
+</style>
+  </div>
+  <div data-animation="default" data-collapse="medium" data-duration="300" data-easing="ease-out-circ" data-easing2="ease-in-circ" role="banner" class="ds-navbar w-nav">
+    <div class="container w-container">
+      <div class="w-layout-vflex navbar-stack">
+        <a href="index.html" class="brand w-nav-brand">
+          <div class="w-embed"><svg width="" height="48" viewbox="0 0 95 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path d="M0.396866 28C0.396866 43.464 12.8504 56 28.2127 56V42C20.5315 42 14.3048 35.732 14.3048 28L14.303 14H28.2109V0H0.396866V28Z" fill="#6200FF"></path>
+              </g>
+              <path d="M90.1635 40.299C89.3438 40.299 88.5582 40.1917 87.8068 39.977C87.0553 39.7525 86.4503 39.4647 85.9916 39.1133L86.7967 37.3275C87.2359 37.6398 87.7531 37.8984 88.3484 38.1033C88.9534 38.2985 89.5634 38.3961 90.1782 38.3961C90.6466 38.3961 91.0223 38.3521 91.3053 38.2643C91.5981 38.1667 91.8128 38.035 91.9494 37.8691C92.086 37.7032 92.1543 37.5129 92.1543 37.2982C92.1543 37.0249 92.047 36.8102 91.8323 36.6541C91.6176 36.4882 91.3346 36.3565 90.9833 36.2589C90.632 36.1515 90.2416 36.0539 89.8122 35.9661C89.3926 35.8685 88.9681 35.7514 88.5387 35.6148C88.119 35.4782 87.7336 35.3025 87.3823 35.0878C87.0309 34.8731 86.743 34.5901 86.5186 34.2388C86.3039 33.8875 86.1966 33.4386 86.1966 32.8921C86.1966 32.3065 86.3527 31.7747 86.665 31.2965C86.987 30.8086 87.4652 30.4231 88.0995 30.1401C88.7436 29.8473 89.5487 29.7009 90.5148 29.7009C91.1589 29.7009 91.7933 29.779 92.4178 29.9351C93.0424 30.0815 93.5938 30.306 94.0719 30.6085L93.34 32.409C92.8618 32.1358 92.3837 31.9357 91.9055 31.8088C91.4273 31.6722 90.9589 31.6039 90.5002 31.6039C90.0415 31.6039 89.6658 31.6576 89.3731 31.7649C89.0803 31.8723 88.8705 32.0138 88.7436 32.1894C88.6167 32.3553 88.5533 32.5505 88.5533 32.775C88.5533 33.0385 88.6607 33.2531 88.8754 33.419C89.0901 33.5752 89.3731 33.7021 89.7244 33.7996C90.0757 33.8972 90.4612 33.9948 90.8808 34.0924C91.3102 34.19 91.7347 34.3022 92.1543 34.4291C92.5837 34.556 92.9741 34.7267 93.3254 34.9414C93.6767 35.1561 93.9597 35.4391 94.1744 35.7904C94.3989 36.1418 94.5111 36.5858 94.5111 37.1225C94.5111 37.6983 94.3501 38.2253 94.028 38.7035C93.706 39.1817 93.2229 39.5671 92.5788 39.8599C91.9445 40.1527 91.1394 40.299 90.1635 40.299Z" fill="#0A0040"></path>
+              <path d="M73.9498 40.1233L78.5169 29.8765H80.8591L85.4409 40.1233H82.9523L79.2049 31.0768H80.1418L76.3798 40.1233H73.9498ZM76.2334 37.9275L76.8628 36.127H82.1326L82.7767 37.9275H76.2334Z" fill="#0A0040"></path>
+              <path d="M67.7138 40.1233L63.293 29.8765H65.8547L69.7192 38.9522H68.2115L72.1345 29.8765H74.4913L70.0559 40.1233H67.7138Z" fill="#0A0040"></path>
+              <path d="M57.3017 40.299C56.4918 40.299 55.7403 40.1673 55.0475 39.9038C54.3643 39.6403 53.769 39.2695 53.2616 38.7913C52.7639 38.3131 52.3735 37.752 52.0905 37.1079C51.8173 36.4638 51.6806 35.7612 51.6806 35C51.6806 34.2388 51.8173 33.5362 52.0905 32.8921C52.3735 32.248 52.7688 31.6869 53.2762 31.2087C53.7837 30.7305 54.379 30.3596 55.0621 30.0962C55.7452 29.8327 56.4869 29.7009 57.2871 29.7009C58.0971 29.7009 58.8388 29.8327 59.5121 30.0962C60.1952 30.3596 60.7857 30.7305 61.2834 31.2087C61.7908 31.6869 62.1861 32.248 62.4691 32.8921C62.7521 33.5264 62.8936 34.229 62.8936 35C62.8936 35.7612 62.7521 36.4687 62.4691 37.1225C62.1861 37.7666 61.7908 38.3278 61.2834 38.8059C60.7857 39.2744 60.1952 39.6403 59.5121 39.9038C58.8388 40.1673 58.102 40.299 57.3017 40.299ZM57.2871 38.279C57.7458 38.279 58.1654 38.2009 58.546 38.0447C58.9364 37.8886 59.2779 37.6641 59.5707 37.3714C59.8634 37.0786 60.0879 36.7322 60.244 36.3321C60.4099 35.932 60.4929 35.4879 60.4929 35C60.4929 34.512 60.4099 34.068 60.244 33.6679C60.0879 33.2678 59.8634 32.9213 59.5707 32.6286C59.2877 32.3358 58.951 32.1114 58.5606 31.9552C58.1703 31.7991 57.7458 31.721 57.2871 31.721C56.8284 31.721 56.4039 31.7991 56.0136 31.9552C55.633 32.1114 55.2963 32.3358 55.0035 32.6286C54.7108 32.9213 54.4814 33.2678 54.3155 33.6679C54.1594 34.068 54.0813 34.512 54.0813 35C54.0813 35.4782 54.1594 35.9222 54.3155 36.3321C54.4814 36.7322 54.7059 37.0786 54.9889 37.3714C55.2817 37.6641 55.6232 37.8886 56.0136 38.0447C56.4039 38.2009 56.8284 38.279 57.2871 38.279Z" fill="#0A0040"></path>
+              <path d="M43.3691 40.1233V29.8765H45.7405V38.191H50.8785V40.1233H43.3691Z" fill="#0A0040"></path>
+              <path d="M81.9364 26.1233V15.8765H86.3718C87.2891 15.8765 88.0796 16.0277 88.7432 16.3303C89.4068 16.623 89.9191 17.0475 90.2802 17.6038C90.6412 18.16 90.8218 18.8236 90.8218 19.5946C90.8218 20.3558 90.6412 21.0145 90.2802 21.5708C89.9191 22.1172 89.4068 22.5369 88.7432 22.8296C88.0796 23.1224 87.2891 23.2688 86.3718 23.2688H83.2538L84.3078 22.2295V26.1233H81.9364ZM88.4504 26.1233L85.8887 22.4051H88.4211L91.0121 26.1233H88.4504ZM84.3078 22.493L83.2538 21.3805H86.24C86.9719 21.3805 87.5184 21.2243 87.8795 20.912C88.2406 20.59 88.4211 20.1508 88.4211 19.5946C88.4211 19.0286 88.2406 18.5894 87.8795 18.2771C87.5184 17.9649 86.9719 17.8087 86.24 17.8087H83.2538L84.3078 16.6816V22.493Z" fill="#0A0040"></path>
+              <path d="M74.2696 26.299C73.4596 26.299 72.7081 26.1673 72.0153 25.9038C71.3321 25.6403 70.7369 25.2695 70.2294 24.7913C69.7317 24.3131 69.3413 23.752 69.0583 23.1079C68.7851 22.4638 68.6485 21.7612 68.6485 21C68.6485 20.2388 68.7851 19.5362 69.0583 18.8921C69.3413 18.248 69.7366 17.6869 70.244 17.2087C70.7515 16.7305 71.3468 16.3596 72.0299 16.0962C72.713 15.8327 73.4547 15.7009 74.2549 15.7009C75.0649 15.7009 75.8066 15.8327 76.4799 16.0962C77.1631 16.3596 77.7535 16.7305 78.2512 17.2087C78.7586 17.6869 79.1539 18.248 79.4369 18.8921C79.7199 19.5264 79.8614 20.229 79.8614 21C79.8614 21.7612 79.7199 22.4687 79.4369 23.1225C79.1539 23.7666 78.7586 24.3278 78.2512 24.8059C77.7535 25.2744 77.1631 25.6403 76.4799 25.9038C75.8066 26.1673 75.0698 26.299 74.2696 26.299ZM74.2549 24.279C74.7136 24.279 75.1332 24.2009 75.5138 24.0447C75.9042 23.8886 76.2457 23.6641 76.5385 23.3714C76.8313 23.0786 77.0557 22.7322 77.2119 22.3321C77.3778 21.932 77.4607 21.4879 77.4607 21C77.4607 20.512 77.3778 20.068 77.2119 19.6679C77.0557 19.2678 76.8313 18.9213 76.5385 18.6286C76.2555 18.3358 75.9188 18.1114 75.5284 17.9552C75.1381 17.7991 74.7136 17.721 74.2549 17.721C73.7963 17.721 73.3717 17.7991 72.9814 17.9552C72.6008 18.1114 72.2641 18.3358 71.9713 18.6286C71.6786 18.9213 71.4493 19.2678 71.2833 19.6679C71.1272 20.068 71.0491 20.512 71.0491 21C71.0491 21.4782 71.1272 21.9222 71.2833 22.3321C71.4493 22.7322 71.6737 23.0786 71.9567 23.3714C72.2495 23.6641 72.591 23.8886 72.9814 24.0447C73.3717 24.2009 73.7963 24.279 74.2549 24.279Z" fill="#0A0040"></path>
+              <path d="M57.8066 26.1233V15.8765H62.8129C64.1011 15.8765 65.0672 16.1204 65.7113 16.6084C66.3652 17.0963 66.6921 17.7404 66.6921 18.5406C66.6921 19.0774 66.5603 19.5458 66.2968 19.9459C66.0334 20.3363 65.6723 20.6388 65.2136 20.8535C64.7549 21.0682 64.228 21.1755 63.6327 21.1755L63.9108 20.5754C64.5549 20.5754 65.1258 20.6827 65.6235 20.8974C66.1212 21.1023 66.5067 21.4097 66.7799 21.8196C67.0629 22.2295 67.2044 22.7321 67.2044 23.3273C67.2044 24.2056 66.858 24.8936 66.1651 25.3913C65.4722 25.8793 64.4524 26.1233 63.1057 26.1233H57.8066ZM60.1634 24.3374H62.93C63.5449 24.3374 64.0084 24.2398 64.3207 24.0446C64.6427 23.8397 64.8037 23.5176 64.8037 23.0785C64.8037 22.6491 64.6427 22.3319 64.3207 22.127C64.0084 21.9123 63.5449 21.805 62.93 21.805H59.9878V20.0776H62.5202C63.0959 20.0776 63.5351 19.9801 63.8376 19.7849C64.1499 19.5799 64.306 19.2725 64.306 18.8627C64.306 18.4626 64.1499 18.1649 63.8376 17.9697C63.5351 17.7648 63.0959 17.6623 62.5202 17.6623H60.1634V24.3374Z" fill="#0A0040"></path>
+              <path d="M52.7107 26.1233V15.8765H55.0821V26.1233H52.7107Z" fill="#0A0040"></path>
+              <path d="M45.4916 26.1233V17.8087H42.2127V15.8765H51.142V17.8087H47.863V26.1233H45.4916Z" fill="#0A0040"></path>
+            </svg></div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <section id="Hero" data-w-id="b0f4886a-c9e6-abf2-d0d9-11178ce5bd4d" class="ds-section-hero">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="w-layout-vflex ds-section-hero-stack">
+        <h1 class="text-1"><span class="text-color-brand"><strong>Genome</strong></span><strong><br>Design<br>System</strong></h1>
+        <div class="w-layout-vflex ds-section-hero-stack-text">
+          <h1 class="text-4">Genetic Information</h1>
+          <h1 class="text-4">to Build The Web</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div data-animation="default" data-collapse="none" data-duration="300" data-easing="ease-out-circ" data-easing2="ease-in-circ" role="banner" class="section-header sticky w-nav">
+    <div class="w-layout-blockcontainer container navigation w-container">
+      <div class="w-layout-vflex navbar-stack">
+        <nav role="navigation" class="ds-nav-menu w-nav-menu">
+          <div class="w-layout-vflex">
+            <a href="#Typography" class="ds-nav-link _1 w-nav-link">Typography</a>
+          </div>
+          <div class="w-layout-vflex">
+            <a href="#Color" class="ds-nav-link _2 w-nav-link">Color</a>
+          </div>
+          <div class="w-layout-vflex">
+            <a href="#Space" class="ds-nav-link _4 w-nav-link">Space</a>
+          </div>
+          <div class="w-layout-vflex">
+            <a href="#Utility" class="ds-nav-link _3 w-nav-link">utility</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <section id="Typography" data-scroll-time=".3" class="ds-section overflow-scroll">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="w-layout-vflex ds-section-stack-h">
+        <div class="w-layout-vflex ds-section-stack-caption">
+          <div class="w-layout-vflex stack-v1">
+            <p class="ds-text"><strong>Text</strong> uses a (viewport width dependent) fluid type scale with a ratio of 1.35@375px and 1.6@1440px.</p>
+          </div>
+        </div>
+        <div class="w-layout-vflex ds-section-stack-content">
+          <div class="w-layout-vflex stack-v3">
+            <div class="w-layout-vflex stack-v05">
+              <div class="ds-label">Text 1</div>
+              <h1 class="text-1">Design</h1>
+            </div>
+            <div class="w-layout-vflex stack-v05">
+              <div class="ds-label">Text 2</div>
+              <h2 class="text-2">Innovation</h2>
+            </div>
+            <div class="w-layout-vflex stack-v05">
+              <div class="ds-label">Text 3</div>
+              <h3 class="text-3">Product</h3>
+            </div>
+            <div class="w-layout-vflex stack-v05">
+              <div class="ds-label">Text 4</div>
+              <h3 class="text-4">Team</h3>
+            </div>
+            <div class="w-layout-vflex stack-v05">
+              <div class="ds-label">Text 5</div>
+              <h3 class="text-5">Team</h3>
+            </div>
+            <div class="w-layout-vflex stack-v05">
+              <div class="ds-label">Text 6</div>
+              <p class="text-6">If you are looking for a strategic designer for your team with a high sense of ownership, let&#x27;s connect.</p>
+            </div>
+            <div class="w-layout-vflex stack-v05">
+              <div class="ds-label">Text 7</div>
+              <p class="text-7">If you are looking for a strategic designer for your team with a high sense of ownership, let&#x27;s connect.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="Color" data-scroll-time=".3" class="ds-section">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="w-layout-vflex ds-section-stack-h">
+        <div class="w-layout-vflex ds-section-stack-caption">
+          <div class="w-layout-vflex stack-v1">
+            <p class="ds-text"><strong>Color</strong> consists of 2 brand shades, a neutral, white, and transparent.</p>
+          </div>
+        </div>
+        <div class="w-layout-vflex ds-section-stack-content">
+          <div class="w-layout-vflex stack-v3">
+            <div class="ds-label">color Background</div>
+            <div class="w-layout-vflex stack-v2">
+              <h1 class="text-7"><strong>Primary</strong></h1>
+              <div class="w-layout-vflex stack-h4">
+                <div class="w-layout-vflex ds-stack-color">
+                  <div class="ds-circle color-background-brand"></div>
+                  <div class="ds-tag">Color Brand</div>
+                </div>
+                <div class="w-layout-vflex ds-stack-color">
+                  <div class="ds-circle color-background-dark"></div>
+                  <div class="ds-tag">Color Dark</div>
+                </div>
+              </div>
+            </div>
+            <div class="w-layout-vflex stack-v2">
+              <h1 class="text-7"><strong>Secondary</strong></h1>
+              <div class="w-layout-vflex stack-h4">
+                <div class="w-layout-vflex ds-stack-color">
+                  <div class="ds-circle color-background-light"></div>
+                  <div class="ds-tag">Color Light</div>
+                </div>
+                <div class="w-layout-vflex ds-stack-color">
+                  <div class="w-layout-vflex ds-circle border-m">
+                    <div class="ds-circle color-background-white"></div>
+                  </div>
+                  <div class="ds-tag">Color White</div>
+                </div>
+                <div class="w-layout-vflex ds-stack-color">
+                  <div class="w-layout-vflex ds-circle border-m">
+                    <div class="ds-circle color-background-transparent"></div>
+                  </div>
+                  <div class="ds-tag">Color transparent</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-layout-vflex stack-v3">
+            <div class="ds-label">color Border</div>
+            <div class="w-layout-vflex stack-v2">
+              <h1 class="text-7"><strong>Primary</strong></h1>
+              <div class="w-layout-vflex stack-h4">
+                <div class="w-layout-vflex ds-stack-color">
+                  <div class="w-layout-vflex ds-circle border-m color-border-dark"></div>
+                  <div class="ds-tag">Color border dark</div>
+                </div>
+                <div class="w-layout-vflex ds-stack-color">
+                  <div class="w-layout-vflex ds-circle border-m color-border-brand"></div>
+                  <div class="ds-tag">Color border BRand</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-layout-vflex stack-v3">
+            <div class="ds-label">color Text</div>
+            <div class="w-layout-vflex stack-v2">
+              <h1 class="text-7"><strong>Primary</strong></h1>
+              <div class="w-layout-vflex stack-h4">
+                <div class="ds-label color-text-dark">Color text dark</div>
+                <div class="ds-label color-text-brand">Color text brand</div>
+                <div class="w-layout-vflex color-background-dark">
+                  <div class="ds-label color-text-white">Color text white</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="Space" data-scroll-time=".3" class="ds-section overflow-scroll">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="w-layout-vflex ds-section-stack-v">
+        <div class="w-layout-vflex ds-section-stack-h">
+          <div class="w-layout-vflex ds-section-stack-caption">
+            <div class="w-layout-vflex stack-v1">
+              <p class="ds-text"><strong>Space</strong> token is used to set size, margin, padding, or gap between elements that don&#x27;t need to sit on the grid.<br><br>Scales based on the body font size.</p>
+            </div>
+          </div>
+          <div class="w-layout-vflex ds-section-stack-content overflow-scroll">
+            <div class="w-layout-vflex stack-v025">
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item space-1"></div>
+                <div class="ds-label">s025</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item space-2"></div>
+                <div class="ds-label">s05</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item space-3"></div>
+                <div class="ds-label">s1</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item space-4"></div>
+                <div class="ds-label">s2</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item space-5"></div>
+                <div class="ds-label">s3</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item space-6"></div>
+                <div class="ds-label">s4</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item space-7"></div>
+                <div class="ds-label">s5</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item space-8"></div>
+                <div class="ds-label">s6</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item space-9"></div>
+                <div class="ds-label">s7</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-layout-vflex ds-section-stack-h">
+          <div class="w-layout-vflex ds-section-stack-caption">
+            <div class="w-layout-vflex stack-v1">
+              <p class="ds-text"><strong>Grid</strong> token is used to set size, margin, padding, or gap between elements that need to sit on the grid. <br><br>Scales based on the window size.<br></p>
+            </div>
+          </div>
+          <div class="w-layout-vflex ds-section-stack-content overflow-scroll">
+            <div class="w-layout-vflex stack-v025">
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g1"></div>
+                <div class="ds-label">G1</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g2"></div>
+                <div class="ds-label">G2</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g3"></div>
+                <div class="ds-label">g3</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g4"></div>
+                <div class="ds-label">g4</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g5"></div>
+                <div class="ds-label">g5</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g6"></div>
+                <div class="ds-label">g6</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g7"></div>
+                <div class="ds-label">g7</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g8"></div>
+                <div class="ds-label">g8</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g9"></div>
+                <div class="ds-label">g9</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g10"></div>
+                <div class="ds-label">g10</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g11"></div>
+                <div class="ds-label">G11</div>
+              </div>
+              <div class="w-layout-vflex stack-h1">
+                <div class="ds-space-item g12"></div>
+                <div class="ds-label">G12</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-layout-vflex ds-section-stack-v"></div>
+      </div>
+    </div>
+  </section>
+  <section id="Utility" data-scroll-time=".3" class="ds-section">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="w-layout-vflex ds-section-stack-h">
+        <div class="w-layout-vflex ds-section-stack-caption">
+          <div class="w-layout-vflex stack-v1">
+            <p class="ds-text"><strong>Utility</strong> such as Radius, Border, Elevation</p>
+          </div>
+        </div>
+        <div class="w-layout-vflex ds-section-stack-content">
+          <div class="w-layout-vflex stack-v3">
+            <div class="ds-label">Radius</div>
+            <div class="w-layout-vflex stack-h4">
+              <div class="w-layout-vflex ds-stack-color">
+                <div class="w-layout-vflex ds-square border-m radius-s"></div>
+                <div class="ds-tag">Radius S</div>
+              </div>
+              <div class="w-layout-vflex ds-stack-color">
+                <div class="w-layout-vflex ds-square border-m radius-m"></div>
+                <div class="ds-tag">Radius M</div>
+              </div>
+              <div class="w-layout-vflex ds-stack-color">
+                <div class="w-layout-vflex ds-square border-m radius-l"></div>
+                <div class="ds-tag">Radius L</div>
+              </div>
+            </div>
+          </div>
+          <div class="w-layout-vflex stack-v3">
+            <div class="ds-label">Border</div>
+            <div class="w-layout-vflex stack-h4">
+              <div class="w-layout-vflex ds-stack-color">
+                <div class="w-layout-vflex ds-circle border-s"></div>
+                <div class="ds-tag">border S</div>
+              </div>
+              <div class="w-layout-vflex ds-stack-color">
+                <div class="ds-circle border-m"></div>
+                <div class="ds-tag">border M</div>
+              </div>
+              <div class="w-layout-vflex ds-stack-color">
+                <div class="ds-circle border-l"></div>
+                <div class="ds-tag">border L</div>
+              </div>
+            </div>
+          </div>
+          <div class="w-layout-vflex stack-v3">
+            <div class="ds-label">Elevation</div>
+            <div class="w-layout-vflex stack-h4">
+              <div class="w-layout-vflex ds-stack-color">
+                <div class="w-layout-vflex ds-circle color-background-white elevation-s"></div>
+                <div class="ds-tag">Elevation S</div>
+              </div>
+              <div class="w-layout-vflex ds-stack-color">
+                <div class="w-layout-vflex ds-circle color-background-white elevation-m"></div>
+                <div class="ds-tag">Elevation M</div>
+              </div>
+              <div class="w-layout-vflex ds-stack-color">
+                <div class="w-layout-vflex ds-circle color-background-white elevation-l"></div>
+                <div class="ds-tag">Elevation L</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="Footer" class="ds-section-footer">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="w-layout-vflex ds-footer-wrap">
+        <div class="footer-navbar">
+          <a href="#" class="footer-navbar-link w-inline-block">
+            <div>Wirefigma</div>
+          </a>
+          <a href="#" class="footer-navbar-link w-inline-block">
+            <div>Projects</div>
+          </a>
+          <a href="#" class="footer-navbar-link w-inline-block">
+            <div>About</div>
+          </a>
+          <a href="#" class="footer-navbar-link w-inline-block">
+            <div>Success Stories</div>
+          </a>
+          <a href="#" class="footer-navbar-link w-inline-block">
+            <div>FAQ</div>
+          </a>
+          <a href="resume.html" class="footer-navbar-link w-inline-block">
+            <div>Resume</div>
+          </a>
+          <a id="open_preferences_center" data-cky-tag="revisit-consent" href="#" class="footer-navbar-link w-inline-block">
+            <div>Cookie preferences</div>
+          </a>
+          <a href="#" class="footer-navbar-link w-inline-block">
+            <div>Contact</div>
+          </a>
+        </div>
+        <div class="dep-copyright">All Rights Reserved © 2026</div>
+      </div>
+    </div>
+  </section>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6570531d0c28a8d6017f05a0" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script><!--  Google Tag Manager (noscript)  -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGCXGMK6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!--  End Google Tag Manager (noscript)  -->
+</body>
+</html>
