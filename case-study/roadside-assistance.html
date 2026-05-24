@@ -35,6 +35,8 @@
     .case-meta { display: grid; gap: 28px; }
     .case-meta h2 { font-size: 34px; line-height: 1; margin: 0 0 14px; }
     .case-meta p { font-size: 22px; line-height: 1.35; margin: 0; }
+    .case-meta ul { grid-column-gap: 10px; grid-row-gap: 10px; flex-direction: column; margin: 0; padding-left: 24px; display: flex; }
+    .case-meta li { font-size: 22px; line-height: 1.35; padding-left: 4px; }
     .case-image-band { padding: 32px 0 80px; }
     .case-image-band img { display: block; width: 100%; height: auto; border-radius: 28px; }
     .case-section { padding: 80px 0; }
@@ -45,12 +47,14 @@
     .case-split { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 56px; align-items: center; }
     .case-split h2 { font-size: clamp(42px, 6vw, 76px); line-height: .95; margin: 0; }
     .case-split p { font-size: 24px; line-height: 1.35; margin: 0 0 20px; }
-    .case-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
-    .case-result strong { display: block; font-size: clamp(52px, 7vw, 84px); line-height: .9; margin-bottom: 16px; }
-    .case-result span { display: block; font-size: 22px; line-height: 1.3; }
+    .case-results-panel { background-color: #6200ff; border-radius: 40px; color: #fff; padding: clamp(56px, 8vw, 96px) clamp(32px, 7vw, 96px); }
+    .case-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; text-align: center; }
+    .case-results-heading { color: #08003f; font-size: clamp(42px, 6vw, 76px); font-weight: 800; line-height: .95; margin: 0 0 48px; }
+    .case-result strong { color: #fff; display: block; font-size: clamp(72px, 11vw, 128px); line-height: .9; margin-bottom: 24px; }
+    .case-result span { color: #fff; display: block; font-size: clamp(24px, 3vw, 40px); line-height: 1.18; }
     .case-article { max-width: 920px; }
-    .case-article-section { padding: 56px 0; border-top: 1px solid rgba(8, 0, 63, .1); }
-    .case-article-section:first-child { border-top: 0; padding-top: 0; }
+    .case-article-section { padding: 84px 0; }
+    .case-article-section:first-child { padding-top: 0; }
     .case-article-section h2 { font-size: clamp(38px, 5vw, 64px); font-weight: 800; line-height: .95; margin: 0 0 28px; }
     .case-article-section h3 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; line-height: 1.05; margin: 40px 0 18px; }
     .case-article-section p { font-size: 22px; line-height: 1.45; margin: 0 0 22px; }
@@ -60,15 +64,39 @@
     .case-quote p { font-size: clamp(28px, 4vw, 46px); font-weight: 800; line-height: 1.05; margin: 0; }
     .case-workflow-card { background-color: #f4efff; border-radius: 8px; margin-top: 32px; padding: 32px; }
     .case-workflow-card h3:first-child { margin-top: 0; }
+    .case-editorial-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(48px, 8vw, 112px); align-items: start; }
+    .case-editorial-label { color: #6200ff; text-transform: uppercase; font-size: 15px; font-weight: 800; line-height: 1.2; margin-bottom: 22px; }
+    .case-editorial-title { font-size: clamp(44px, 6vw, 80px); font-weight: 800; line-height: .95; margin: 0; position: sticky; top: 40px; }
+    .case-editorial-body p { font-size: 23px; line-height: 1.45; margin: 0 0 24px; }
+    .case-editorial-body ul { grid-column-gap: 12px; grid-row-gap: 12px; flex-direction: column; margin: 0 0 24px; padding-left: 24px; display: flex; }
+    .case-editorial-body li { font-size: 22px; line-height: 1.42; padding-left: 4px; }
+    .case-timeline { display: grid; gap: 32px; }
+    .case-timeline-item { background-color: #f4efff; border-radius: 8px; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 32px; padding: clamp(28px, 5vw, 48px); }
+    .case-step-number { color: #6200ff; font-size: clamp(48px, 7vw, 84px); font-weight: 800; line-height: .85; }
+    .case-step-content h3 { font-size: clamp(30px, 4vw, 46px); font-weight: 800; line-height: 1; margin: 0 0 20px; }
+    .case-step-content p { font-size: 21px; line-height: 1.45; margin: 0 0 20px; }
+    .case-step-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+    .case-step-column { background-color: #fff; border-radius: 8px; padding: 24px; }
+    .case-step-column h4 { font-size: 18px; line-height: 1.1; margin: 0 0 14px; }
+    .case-step-column ul { grid-column-gap: 8px; grid-row-gap: 8px; flex-direction: column; margin: 0; padding-left: 20px; display: flex; }
+    .case-step-column li { font-size: 18px; line-height: 1.35; }
+    .case-takeaway { background-color: #f4efff; border-radius: 8px; padding: clamp(32px, 5vw, 56px); }
+    .case-takeaway p { font-size: clamp(30px, 4vw, 52px); font-weight: 800; line-height: 1.05; margin: 0; }
     @media screen and (max-width: 767px) {
       .case-hero { padding: 96px 0 40px; }
-      .case-intro, .case-grid, .case-split, .case-results { grid-template-columns: 1fr; gap: 28px; }
+      .case-intro, .case-grid, .case-split, .case-results { grid-template-columns: 1fr; gap: 44px; }
+      .case-results-panel { border-radius: 28px; padding: 48px 28px; }
+      .case-results-heading { margin-bottom: 32px; }
       .case-image-band { padding-bottom: 44px; }
       .case-section { padding: 48px 0; }
       .case-card { padding: 24px; }
-      .case-article-section { padding: 42px 0; }
+      .case-article-section { padding: 64px 0; }
       .case-article-section p, .case-article-section li { font-size: 19px; }
       .case-quote, .case-workflow-card { padding: 24px; }
+      .case-editorial-grid, .case-timeline-item, .case-step-columns { grid-template-columns: 1fr; gap: 24px; }
+      .case-editorial-title { position: static; }
+      .case-editorial-body p, .case-editorial-body li, .case-step-content p { font-size: 19px; }
+      .case-step-column li { font-size: 17px; }
     }
   </style>
 </head>
@@ -97,11 +125,21 @@
     <section class="case-hero">
       <div class="w-layout-blockcontainer container w-container">
         <div class="case-eyebrow">AI-Assisted Product Design Workflow</div>
-        <h1 class="case-title">Designing a scalable memberships platform with AI integrated from discovery to production.</h1>
+        <h1 class="case-title">Managing Memberships at Scale</h1>
         <div class="case-intro">
-          <p class="case-copy">A growing digital platform needed to redesign and scale its memberships experience across web and mobile while reducing iteration time across the product lifecycle.</p>
+          <p class="case-copy">Designing a scalable memberships platform with AI integrated from discovery to production.</p>
           <div class="case-meta">
-            <div><h2>My role</h2><p>Product Design<br>UX Strategy<br>Design Systems<br>Frontend Collaboration<br>AI Workflow Integration<br>QA &amp; Production Validation</p></div>
+            <div>
+              <h2>My role</h2>
+              <ul>
+                <li>Product Design</li>
+                <li>UX Strategy</li>
+                <li>Design Systems</li>
+                <li>Frontend Collaboration</li>
+                <li>AI Workflow Integration</li>
+                <li>QA &amp; Production Validation</li>
+              </ul>
+            </div>
             <div><h2>Focus</h2><p>Using AI as a systems and acceleration layer from research through production validation.</p></div>
           </div>
         </div>
@@ -110,24 +148,27 @@
     <section class="case-image-band"><div class="w-layout-blockcontainer container w-container"><img src="../images/Roadside-Assistance.png" loading="eager" alt="Roadside assistance membership management interface"></div></section>
     <section class="case-section">
       <div class="w-layout-blockcontainer container w-container">
-        <div class="case-grid">
-          <article class="case-card"><h2>Discovery</h2><p>AI helped synthesize stakeholder notes, support tickets, competitor patterns, usability feedback, and internal documentation.</p></article>
-          <article class="case-card"><h2>Systems</h2><p>The final design was structured around reusable primitives rather than isolated screens or one-off membership states.</p></article>
-          <article class="case-card"><h2>Production</h2><p>AI accelerated scaffolding and validation, while human judgment shaped constraints, tradeoffs, QA, and product quality.</p></article>
+        <div class="case-editorial-grid">
+          <div>
+            <div class="case-editorial-label">Overview</div>
+            <h2 class="case-editorial-title">A faster way to design without lowering the bar.</h2>
+          </div>
+          <div class="case-editorial-body">
+            <p>A growing digital platform needed to redesign and scale its memberships experience across web and mobile. The existing system had fragmented flows, inconsistent UI patterns, and increasing friction between product, design, and engineering teams.</p>
+            <p>The goal was not just to redesign screens. It was to create a production-ready system that could scale quickly while reducing iteration time across the entire product lifecycle.</p>
+            <p>My role combined product design, system thinking, frontend collaboration, and AI-assisted workflows.</p>
+          </div>
         </div>
       </div>
     </section>
     <section class="case-section">
       <div class="w-layout-blockcontainer container w-container">
-        <article class="case-article">
-          <section class="case-article-section">
-            <h2>Overview</h2>
-            <p>A growing digital platform needed to redesign and scale its memberships experience across web and mobile. The existing system had fragmented flows, inconsistent UI patterns, and increasing friction between product, design, and engineering teams.</p>
-            <p>The goal was not just to redesign screens. It was to create a production-ready system that could scale quickly while reducing iteration time across the entire product lifecycle.</p>
-            <p>My role combined product design, system thinking, frontend collaboration, and AI-assisted workflows.</p>
-          </section>
-          <section class="case-article-section">
-            <h2>The Challenge</h2>
+        <div class="case-editorial-grid">
+          <div>
+            <div class="case-editorial-label">Challenge</div>
+            <h2 class="case-editorial-title">Membership flows were moving faster than the system around them.</h2>
+          </div>
+          <div class="case-editorial-body">
             <p>The team faced three major problems:</p>
             <ul>
               <li>Membership flows evolved faster than the design system.</li>
@@ -136,85 +177,165 @@
             </ul>
             <p>Traditional design workflows were too linear for the speed required.</p>
             <div class="case-quote"><p>How do we design faster without sacrificing production quality?</p></div>
-          </section>
-          <section class="case-article-section">
-            <h2>The Approach</h2>
-            <p>Instead of treating AI as a screen generator, I integrated it throughout the workflow as a systems and acceleration layer.</p>
-            <p>AI helped reduce repetitive work, surface edge cases faster, and speed up exploration, while human judgment remained critical for product thinking, prioritization, and production quality.</p>
-          </section>
-          <section class="case-article-section">
-            <h2>Workflow</h2>
-            <div class="case-workflow-card">
-              <h3>1. Research &amp; Pattern Analysis</h3>
-              <p>I used AI to synthesize large volumes of stakeholder notes, support tickets, competitor patterns, usability feedback, and internal product documentation.</p>
-              <p>This helped identify recurring friction points across onboarding, billing, and account management flows.</p>
-              <h3>AI Contribution</h3>
-              <ul>
-                <li>Clustered recurring UX complaints.</li>
-                <li>Summarized qualitative feedback.</li>
-                <li>Identified missing states and flow inconsistencies.</li>
-                <li>Generated alternative IA structures for exploration.</li>
-              </ul>
-              <h3>Human Layer</h3>
-              <p>The outputs still required validation and prioritization. AI surfaced patterns quickly, but product relevance, business tradeoffs, and UX clarity required human decisions.</p>
-            </div>
-            <div class="case-workflow-card">
-              <h3>2. Rapid Exploration</h3>
-              <p>Instead of manually creating every direction from scratch, AI accelerated early exploration.</p>
-              <p>I used it to generate alternative user flows, test navigation structures, rewrite UX copy variations, explore component combinations, and prototype edge-case scenarios.</p>
-              <h3>Result</h3>
-              <p>The team reviewed broader solution spaces in days instead of weeks.</p>
-            </div>
-            <div class="case-workflow-card">
-              <h3>3. Design System Integration</h3>
-              <p>The project required scalable UI patterns across multiple membership states and permissions.</p>
-              <p>AI helped map inconsistent components, detect duplicate variants, suggest token structures, and generate implementation-ready documentation drafts.</p>
-              <h3>Human Layer</h3>
-              <p>AI could organize systems, but not define product quality. I refined hierarchy, interaction behavior, responsive logic, accessibility decisions, and component scalability.</p>
-              <p>The final system was structured around reusable primitives rather than isolated screens.</p>
-            </div>
-            <div class="case-workflow-card">
-              <h3>4. Frontend Collaboration</h3>
-              <p>One of the biggest workflow improvements came from reducing the gap between design and engineering.</p>
-              <p>AI assisted in generating frontend scaffolding, validating responsive behavior, checking implementation consistency, and comparing production UI against design specs.</p>
-              <div class="case-quote"><p>From “Does this match Figma?” to “Does this solve the product problem correctly?”</p></div>
-            </div>
-            <div class="case-workflow-card">
-              <h3>5. QA &amp; Production Validation</h3>
-              <p>As AI-generated outputs became more common, quality control became increasingly important. A major part of my role became acting as a constraint and validation layer.</p>
-              <p>I used AI to identify missing edge cases, stress-test flows, simulate inconsistent states, and audit design-system usage. Then I manually refined the outputs to ensure production quality.</p>
-              <div class="case-quote"><p>AI increases output speed. Systems thinking determines output quality.</p></div>
-            </div>
-          </section>
-          <section class="case-article-section">
-            <h2>Outcome</h2>
-            <p>The final platform achieved:</p>
-            <ul>
-              <li>Faster design iteration cycles.</li>
-              <li>Reduced UI inconsistencies.</li>
-              <li>Improved design-engineering alignment.</li>
-              <li>More scalable component architecture.</li>
-              <li>Shorter implementation feedback loops.</li>
-            </ul>
-            <p>Most importantly, the workflow itself became more scalable.</p>
-            <p>The project was not successful because AI generated screens. It was successful because AI was integrated into a structured product design process with strong systems thinking, constraints, and production-level QA.</p>
-          </section>
-          <section class="case-article-section">
-            <h2>Key Takeaway</h2>
-            <p>AI did not replace product design. It changed where designers create value.</p>
-            <p>The leverage shifted from manually producing screens to defining systems, shaping workflows, validating quality, and orchestrating decisions across tools, teams, and outputs.</p>
-            <div class="case-quote"><p>The future advantage is not prompting faster. It is building workflows that turn AI output into production-ready products.</p></div>
-          </section>
-        </article>
+          </div>
+        </div>
       </div>
     </section>
-    <section class="case-image-band"><div class="w-layout-blockcontainer container w-container"><img src="../images/Roadside-Assistance-Wrap.png" loading="lazy" alt="Roadside assistance product screen composition"></div></section>
     <section class="case-section">
       <div class="w-layout-blockcontainer container w-container">
-        <div class="case-results">
-          <div class="case-result"><strong>01</strong><span>Faster design iteration cycles.</span></div>
-          <div class="case-result"><strong>02</strong><span>Improved design-engineering alignment.</span></div>
-          <div class="case-result"><strong>03</strong><span>More scalable component architecture.</span></div>
+        <div class="case-editorial-grid">
+          <div>
+            <div class="case-editorial-label">Approach</div>
+            <h2 class="case-editorial-title">AI became a systems layer, not a screen generator.</h2>
+          </div>
+          <div class="case-editorial-body">
+            <p>Instead of treating AI as a screen generator, I integrated it throughout the workflow as a systems and acceleration layer.</p>
+            <p>AI helped reduce repetitive work, surface edge cases faster, and speed up exploration, while human judgment remained critical for product thinking, prioritization, and production quality.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="case-section">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="case-editorial-label">Workflow</div>
+        <div class="case-timeline">
+          <article class="case-timeline-item">
+            <div class="case-step-number">01</div>
+            <div class="case-step-content">
+              <h3>Research &amp; Pattern Analysis</h3>
+              <p>I used AI to synthesize large volumes of stakeholder notes, support tickets, competitor patterns, usability feedback, and internal product documentation.</p>
+              <p>This helped identify recurring friction points across onboarding, billing, and account management flows.</p>
+              <div class="case-step-columns">
+                <div class="case-step-column">
+                  <h4>AI Contribution</h4>
+                  <ul>
+                    <li>Clustered recurring UX complaints.</li>
+                    <li>Summarized qualitative feedback.</li>
+                    <li>Identified missing states and flow inconsistencies.</li>
+                    <li>Generated alternative IA structures.</li>
+                  </ul>
+                </div>
+                <div class="case-step-column">
+                  <h4>Human Layer</h4>
+                  <p>The outputs still required validation and prioritization. Product relevance, business tradeoffs, and UX clarity required human decisions.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="case-timeline-item">
+            <div class="case-step-number">02</div>
+            <div class="case-step-content">
+              <h3>Rapid Exploration</h3>
+              <p>Instead of manually creating every direction from scratch, AI accelerated early exploration across flows, navigation structures, UX copy, component combinations, and edge-case scenarios.</p>
+              <div class="case-step-columns">
+                <div class="case-step-column">
+                  <h4>AI Contribution</h4>
+                  <ul>
+                    <li>Generated alternative user flows.</li>
+                    <li>Tested navigation structures.</li>
+                    <li>Rewrote UX copy variations.</li>
+                    <li>Prototyped edge-case scenarios.</li>
+                  </ul>
+                </div>
+                <div class="case-step-column">
+                  <h4>Result</h4>
+                  <p>The team reviewed broader solution spaces in days instead of weeks.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="case-timeline-item">
+            <div class="case-step-number">03</div>
+            <div class="case-step-content">
+              <h3>Design System Integration</h3>
+              <p>The project required scalable UI patterns across multiple membership states and permissions.</p>
+              <div class="case-step-columns">
+                <div class="case-step-column">
+                  <h4>AI Contribution</h4>
+                  <ul>
+                    <li>Mapped inconsistent components.</li>
+                    <li>Detected duplicate variants.</li>
+                    <li>Suggested token structures.</li>
+                    <li>Generated documentation drafts.</li>
+                  </ul>
+                </div>
+                <div class="case-step-column">
+                  <h4>Human Layer</h4>
+                  <p>I refined hierarchy, interaction behavior, responsive logic, accessibility decisions, and component scalability.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="case-timeline-item">
+            <div class="case-step-number">04</div>
+            <div class="case-step-content">
+              <h3>Frontend Collaboration</h3>
+              <p>One of the biggest workflow improvements came from reducing the gap between design and engineering.</p>
+              <div class="case-step-columns">
+                <div class="case-step-column">
+                  <h4>AI Contribution</h4>
+                  <ul>
+                    <li>Generated frontend scaffolding.</li>
+                    <li>Validated responsive behavior.</li>
+                    <li>Checked implementation consistency.</li>
+                    <li>Compared production UI against specs.</li>
+                  </ul>
+                </div>
+                <div class="case-step-column">
+                  <h4>Review Shift</h4>
+                  <p>From “Does this match Figma?” to “Does this solve the product problem correctly?”</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="case-timeline-item">
+            <div class="case-step-number">05</div>
+            <div class="case-step-content">
+              <h3>QA &amp; Production Validation</h3>
+              <p>As AI-generated outputs became more common, quality control became increasingly important. A major part of my role became acting as a constraint and validation layer.</p>
+              <div class="case-step-columns">
+                <div class="case-step-column">
+                  <h4>AI Contribution</h4>
+                  <ul>
+                    <li>Identified missing edge cases.</li>
+                    <li>Stress-tested flows.</li>
+                    <li>Simulated inconsistent states.</li>
+                    <li>Audited design-system usage.</li>
+                  </ul>
+                </div>
+                <div class="case-step-column">
+                  <h4>Lesson</h4>
+                  <p>AI increases output speed. Systems thinking determines output quality.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="case-section">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="case-editorial-grid">
+          <div>
+            <div class="case-editorial-label">Key Takeaway</div>
+            <h2 class="case-editorial-title">AI changed where product design creates value.</h2>
+          </div>
+          <div class="case-editorial-body">
+            <p>AI did not replace product design. The leverage shifted from manually producing screens to defining systems, shaping workflows, validating quality, and orchestrating decisions across tools, teams, and outputs.</p>
+            <div class="case-takeaway"><p>The future advantage is not prompting faster. It is building workflows that turn AI output into production-ready products.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="case-section">
+      <div class="w-layout-blockcontainer container w-container">
+        <h2 class="case-results-heading">Outcome</h2>
+        <div class="case-results-panel">
+          <div class="case-results">
+            <div class="case-result"><strong>01</strong><span>Faster design iteration cycles.</span></div>
+            <div class="case-result"><strong>02</strong><span>Improved design-engineering alignment.</span></div>
+            <div class="case-result"><strong>03</strong><span>More scalable component architecture.</span></div>
+          </div>
         </div>
       </div>
     </section>
