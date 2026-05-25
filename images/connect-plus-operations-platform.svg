@@ -1,0 +1,246 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="darkPanel" x1="0" y1="50" x2="650" y2="930" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#02091C"/>
+      <stop offset=".55" stop-color="#061C45"/>
+      <stop offset="1" stop-color="#021033"/>
+    </linearGradient>
+    <linearGradient id="blueShape" x1="407" y1="882" x2="1261" y2="78" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#004BFF"/>
+      <stop offset=".55" stop-color="#8DBBFF"/>
+      <stop offset="1" stop-color="#D7E6FF"/>
+    </linearGradient>
+    <linearGradient id="dashboard" x1="765" y1="132" x2="1506" y2="862" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8FBFF"/>
+    </linearGradient>
+    <filter id="softShadow" x="-80" y="-80" width="1760" height="1160" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="34" stdDeviation="34" flood-color="#001B5E" flood-opacity=".22"/>
+    </filter>
+    <filter id="cardShadow" x="-40" y="-40" width="400" height="260" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#06112F" flood-opacity=".08"/>
+    </filter>
+    <style>
+      .small { font: 500 13px Inter, Arial, sans-serif; fill: #47577A; }
+      .micro { font: 600 10px Inter, Arial, sans-serif; fill: #506183; }
+      .label { font: 700 14px Inter, Arial, sans-serif; fill: #0A1744; }
+      .metric { font: 800 28px Inter, Arial, sans-serif; fill: #08123B; }
+      .green { fill: #008F5A; }
+      .blue { fill: #075DFF; }
+      .nav { font: 600 14px Inter, Arial, sans-serif; fill: #EAF2FF; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#ffffff"/>
+
+  <g filter="url(#softShadow)">
+    <path d="M320 68C397 42 470 91 490 168L660 820C680 897 633 976 556 996L96 996C43 996 0 953 0 900V258C0 218 25 183 63 170L320 68Z" fill="url(#darkPanel)"/>
+    <path d="M420 145L1502 101C1537 100 1567 127 1570 162L1635 825C1639 867 1607 904 1565 904L654 853C613 851 582 813 590 773L720 203C727 171 755 148 788 147L420 145Z" fill="url(#blueShape)" opacity=".95"/>
+    <path d="M973 14C1004 -7 1046 -3 1074 24L1293 236C1325 267 1323 319 1289 347L936 640C901 669 849 659 827 619L578 165C556 126 568 77 606 54L973 14Z" fill="#BBD5FF" opacity=".82"/>
+    <circle cx="1231" cy="126" r="64" fill="#0057FF"/>
+    <g opacity=".9">
+      <circle cx="565" cy="81" r="4" fill="#6FA5FF"/>
+      <circle cx="596" cy="81" r="4" fill="#6FA5FF"/>
+      <circle cx="627" cy="81" r="4" fill="#6FA5FF"/>
+      <circle cx="658" cy="81" r="4" fill="#6FA5FF"/>
+      <circle cx="689" cy="81" r="4" fill="#6FA5FF"/>
+      <circle cx="565" cy="111" r="4" fill="#6FA5FF"/>
+      <circle cx="596" cy="111" r="4" fill="#6FA5FF"/>
+      <circle cx="627" cy="111" r="4" fill="#6FA5FF"/>
+      <circle cx="658" cy="111" r="4" fill="#6FA5FF"/>
+      <circle cx="689" cy="111" r="4" fill="#6FA5FF"/>
+      <circle cx="565" cy="141" r="4" fill="#6FA5FF"/>
+      <circle cx="596" cy="141" r="4" fill="#6FA5FF"/>
+      <circle cx="627" cy="141" r="4" fill="#6FA5FF"/>
+      <circle cx="658" cy="141" r="4" fill="#6FA5FF"/>
+      <circle cx="689" cy="141" r="4" fill="#6FA5FF"/>
+    </g>
+
+    <g transform="translate(80 132)">
+      <path d="M160 115L286 51C292 48 299 52 299 59V160C299 165 296 169 292 172L167 236C161 239 154 235 154 228V127C154 122 156 118 160 115Z" fill="#0057FF"/>
+      <path d="M328 141L444 83C450 80 457 84 457 91V192C457 197 454 201 450 204L334 263C328 266 321 262 321 255V154C321 148 324 144 328 141Z" fill="#BBD5FF"/>
+      <text x="0" y="420" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="800" fill="#fff" letter-spacing="-3">CONNECT</text>
+      <text x="438" y="420" font-family="Inter, Arial, sans-serif" font-size="92" font-weight="800" fill="#0057FF">+</text>
+      <text x="0" y="468" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700" fill="#A7C7FF" letter-spacing="5">ENTERPRISE OPERATIONS PLATFORM</text>
+      <rect x="0" y="512" width="84" height="6" rx="3" fill="#0057FF"/>
+      <text x="0" y="568" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="400" fill="#fff">An integrated platform powering</text>
+      <text x="0" y="602" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="400" fill="#fff">Memberships, Billing, POS,</text>
+      <text x="0" y="636" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="400" fill="#fff">Dispatch, and more.</text>
+
+      <g transform="translate(0 702)">
+        <circle cx="18" cy="12" r="12" fill="#1267FF"/>
+        <circle cx="46" cy="12" r="12" fill="#1267FF"/>
+        <path d="M0 52C2 32 15 23 32 23C49 23 62 32 64 52H0Z" fill="#1267FF"/>
+        <text x="0" y="96" class="nav">Memberships</text>
+        <text x="0" y="128" font-family="Inter, Arial, sans-serif" font-size="14" fill="#fff">Manage members</text>
+        <text x="0" y="154" font-family="Inter, Arial, sans-serif" font-size="14" fill="#fff">at scale</text>
+      </g>
+      <g transform="translate(176 702)">
+        <rect x="0" y="0" width="46" height="46" rx="7" fill="#1267FF"/>
+        <circle cx="13" cy="14" r="5" fill="#BBD5FF"/>
+        <rect x="25" y="12" width="12" height="4" fill="#BBD5FF"/>
+        <rect x="10" y="28" width="26" height="5" fill="#BBD5FF"/>
+        <text x="0" y="96" class="nav">Billing</text>
+        <text x="0" y="128" font-family="Inter, Arial, sans-serif" font-size="14" fill="#fff">Streamlined billing</text>
+        <text x="0" y="154" font-family="Inter, Arial, sans-serif" font-size="14" fill="#fff">and payments</text>
+      </g>
+      <g transform="translate(338 702)">
+        <rect x="0" y="0" width="54" height="36" rx="4" stroke="#1267FF" stroke-width="6"/>
+        <rect x="20" y="39" width="14" height="18" fill="#1267FF"/>
+        <rect x="10" y="56" width="34" height="5" fill="#1267FF"/>
+        <text x="0" y="96" class="nav">POS</text>
+        <text x="0" y="128" font-family="Inter, Arial, sans-serif" font-size="14" fill="#fff">Point of sale</text>
+        <text x="0" y="154" font-family="Inter, Arial, sans-serif" font-size="14" fill="#fff">solutions</text>
+      </g>
+      <g transform="translate(482 702)">
+        <path d="M12 36H60L52 17C49 9 44 5 36 5H24C17 5 12 9 9 17L0 36H12Z" fill="#1267FF"/>
+        <rect x="5" y="33" width="55" height="22" rx="5" fill="#1267FF"/>
+        <circle cx="14" cy="56" r="6" fill="#061C45"/>
+        <circle cx="52" cy="56" r="6" fill="#061C45"/>
+        <text x="0" y="96" class="nav">Dispatch</text>
+        <text x="0" y="128" font-family="Inter, Arial, sans-serif" font-size="14" fill="#fff">Real-time operations</text>
+        <text x="0" y="154" font-family="Inter, Arial, sans-serif" font-size="14" fill="#fff">and routing</text>
+      </g>
+    </g>
+
+    <g transform="translate(655 126) rotate(-4 438 390)">
+      <rect x="0" y="0" width="858" height="790" rx="28" fill="url(#dashboard)" stroke="#E5EBF6" stroke-width="1.5"/>
+      <rect x="0" y="0" width="160" height="790" rx="28" fill="#031233"/>
+      <rect x="0" y="0" width="160" height="790" rx="28" fill="url(#darkPanel)" opacity=".95"/>
+      <g transform="translate(27 80)">
+        <rect x="0" y="0" width="106" height="44" rx="9" fill="#075DFF"/>
+        <text x="42" y="28" class="nav">Dashboard</text>
+        <text x="42" y="84" class="nav" opacity=".8">Memberships</text>
+        <text x="42" y="136" class="nav" opacity=".8">Billing</text>
+        <text x="42" y="188" class="nav" opacity=".8">POS</text>
+        <text x="42" y="240" class="nav" opacity=".8">Dispatch</text>
+        <text x="42" y="292" class="nav" opacity=".8">Shops</text>
+        <text x="42" y="344" class="nav" opacity=".8">Workforce</text>
+        <text x="42" y="396" class="nav" opacity=".8">Reports</text>
+        <text x="42" y="448" class="nav" opacity=".8">Settings</text>
+        <circle cx="18" cy="21" r="7" fill="#D8E8FF"/>
+        <circle cx="18" cy="76" r="7" stroke="#D8E8FF" stroke-width="2"/>
+        <rect x="11" y="129" width="14" height="14" rx="2" stroke="#D8E8FF" stroke-width="2"/>
+        <path d="M10 181H26M10 189H26M10 197H22" stroke="#D8E8FF" stroke-width="2"/>
+        <circle cx="18" cy="232" r="7" stroke="#D8E8FF" stroke-width="2"/>
+        <path d="M11 284H25M18 277V291" stroke="#D8E8FF" stroke-width="2"/>
+        <circle cx="14" cy="336" r="5" stroke="#D8E8FF" stroke-width="2"/>
+        <circle cx="24" cy="336" r="5" stroke="#D8E8FF" stroke-width="2"/>
+        <path d="M11 388L17 382L23 388L29 379" stroke="#D8E8FF" stroke-width="2"/>
+        <path d="M12 440L18 434L24 440L18 446Z" stroke="#D8E8FF" stroke-width="2"/>
+      </g>
+
+      <g transform="translate(196 54)">
+        <rect x="0" y="0" width="392" height="42" rx="9" fill="#fff" stroke="#DDE6F4"/>
+        <circle cx="24" cy="21" r="8" stroke="#426088" stroke-width="2"/>
+        <path d="M30 27L37 34" stroke="#426088" stroke-width="2"/>
+        <text x="56" y="26" class="small">Search members, accounts, invoices...</text>
+      </g>
+      <circle cx="735" cy="70" r="8" fill="#075DFF"/>
+      <circle cx="730" cy="64" r="5" fill="#F93636"/>
+      <circle cx="790" cy="70" r="18" fill="#EEF4FF"/>
+      <circle cx="790" cy="62" r="8" fill="#9AADD2"/>
+      <path d="M777 84C781 75 799 75 803 84" fill="#9AADD2"/>
+      <path d="M838 66L844 72L850 66" stroke="#23406D" stroke-width="2"/>
+
+      <text x="196" y="142" class="label">Dashboard Overview</text>
+      <g transform="translate(196 164)">
+        <g filter="url(#cardShadow)">
+          <rect x="0" y="0" width="122" height="118" rx="12" fill="#fff" stroke="#E5EBF6"/>
+          <text x="18" y="30" class="micro">Active Members</text>
+          <text x="18" y="68" class="metric">4.2M</text>
+          <text x="18" y="96" class="small green">+ 3.4%</text>
+        </g>
+        <g transform="translate(137 0)" filter="url(#cardShadow)">
+          <rect x="0" y="0" width="122" height="118" rx="12" fill="#fff" stroke="#E5EBF6"/>
+          <text x="18" y="30" class="micro">Total Revenue</text>
+          <text x="18" y="68" class="metric">$32.8M</text>
+          <text x="18" y="96" class="small green">+ 6.7%</text>
+        </g>
+        <g transform="translate(274 0)" filter="url(#cardShadow)">
+          <rect x="0" y="0" width="122" height="118" rx="12" fill="#fff" stroke="#E5EBF6"/>
+          <text x="18" y="30" class="micro">Transactions</text>
+          <text x="18" y="68" class="metric">128.7K</text>
+          <text x="18" y="96" class="small green">+ 5.2%</text>
+        </g>
+        <g transform="translate(411 0)" filter="url(#cardShadow)">
+          <rect x="0" y="0" width="122" height="118" rx="12" fill="#fff" stroke="#E5EBF6"/>
+          <text x="18" y="30" class="micro">Shops</text>
+          <text x="18" y="68" class="metric">142</text>
+          <text x="18" y="96" class="small green">+ 2</text>
+        </g>
+      </g>
+
+      <g transform="translate(742 164)">
+        <rect x="0" y="0" width="140" height="190" rx="14" fill="#fff" stroke="#E5EBF6"/>
+        <text x="18" y="32" class="label">System Status</text>
+        <circle cx="24" cy="64" r="5" fill="#08A765"/><text x="42" y="68" class="micro">Membership</text><text x="96" y="68" class="micro green">Operational</text>
+        <circle cx="24" cy="96" r="5" fill="#08A765"/><text x="42" y="100" class="micro">Billing</text><text x="96" y="100" class="micro green">Operational</text>
+        <circle cx="24" cy="128" r="5" fill="#08A765"/><text x="42" y="132" class="micro">POS</text><text x="96" y="132" class="micro green">Operational</text>
+        <circle cx="24" cy="160" r="5" fill="#08A765"/><text x="42" y="164" class="micro">Dispatch</text><text x="96" y="164" class="micro green">Operational</text>
+      </g>
+
+      <g transform="translate(196 316)">
+        <rect x="0" y="0" width="520" height="232" rx="16" fill="#fff" stroke="#E5EBF6"/>
+        <text x="18" y="34" class="label">Dispatch Overview</text>
+        <rect x="410" y="18" width="92" height="34" rx="8" fill="#F4F7FE" stroke="#E5EBF6"/>
+        <text x="431" y="40" class="micro">All Regions</text>
+        <path d="M58 70C112 64 152 88 207 82C282 74 318 66 388 82C430 92 462 89 486 102L470 177C400 169 350 186 294 176C248 168 213 148 158 160C108 172 78 161 42 170L58 70Z" fill="#F2F6FD"/>
+        <path d="M105 142C151 132 194 131 239 126C290 121 320 97 361 111C395 122 415 119 452 92" stroke="#0CA65D" stroke-width="4" fill="none"/>
+        <circle cx="361" cy="111" r="6" fill="#E61E1E"/>
+        <g fill="#075DFF">
+          <rect x="102" y="112" width="24" height="15" rx="3"/><rect x="109" y="105" width="14" height="10" rx="2"/>
+          <rect x="210" y="96" width="24" height="15" rx="3"/><rect x="217" y="89" width="14" height="10" rx="2"/>
+          <rect x="300" y="116" width="24" height="15" rx="3"/><rect x="307" y="109" width="14" height="10" rx="2"/>
+          <rect x="384" y="145" width="24" height="15" rx="3"/><rect x="391" y="138" width="14" height="10" rx="2"/>
+          <rect x="440" y="132" width="24" height="15" rx="3"/><rect x="447" y="125" width="14" height="10" rx="2"/>
+        </g>
+        <g transform="translate(22 202)">
+          <circle cx="5" cy="5" r="5" fill="#075DFF"/><text x="18" y="9" class="micro">En Route</text>
+          <circle cx="96" cy="5" r="5" fill="#075DFF"/><text x="109" y="9" class="micro">On Site</text>
+          <circle cx="178" cy="5" r="5" fill="#F2AA00"/><text x="191" y="9" class="micro">Delayed</text>
+          <circle cx="258" cy="5" r="5" fill="#C8D3E8"/><text x="271" y="9" class="micro">Offline</text>
+        </g>
+      </g>
+
+      <g transform="translate(742 386)">
+        <rect x="0" y="0" width="140" height="170" rx="14" fill="#fff" stroke="#E5EBF6"/>
+        <text x="18" y="30" class="label">Recent Activity</text>
+        <text x="104" y="30" class="micro blue">View all</text>
+        <text x="20" y="68" class="micro">New membership</text>
+        <text x="20" y="96" class="micro">Payment received</text>
+        <text x="20" y="124" class="micro">Dispatch updated</text>
+        <text x="20" y="152" class="micro">New POS transaction</text>
+      </g>
+
+      <g transform="translate(196 585)">
+        <rect x="0" y="0" width="242" height="146" rx="14" fill="#fff" stroke="#E5EBF6"/>
+        <text x="18" y="32" class="label">Memberships</text><text x="194" y="32" class="micro blue">View all</text>
+        <text x="18" y="72" class="micro">Total Members</text><text x="165" y="72" class="micro">4,217,697</text><text x="203" y="72" class="micro green">+ 3.4%</text>
+        <text x="18" y="104" class="micro">New Members (30d)</text><text x="165" y="104" class="micro">68,420</text><text x="203" y="104" class="micro green">+ 8.1%</text>
+        <text x="18" y="136" class="micro">Members at Risk</text><text x="165" y="136" class="micro">23,142</text><text x="203" y="136" class="micro" fill="#E61E1E">- 2.6%</text>
+      </g>
+      <g transform="translate(462 585)">
+        <rect x="0" y="0" width="300" height="146" rx="14" fill="#fff" stroke="#E5EBF6"/>
+        <text x="18" y="32" class="label">Revenue Overview</text><text x="230" y="32" class="micro blue">View report</text>
+        <text x="18" y="72" class="metric">$32,820,294</text><text x="18" y="102" class="small green">+ 6.7% vs last month</text>
+        <path d="M18 124C55 112 78 112 110 98C140 84 154 112 183 95C216 76 233 94 262 83" stroke="#075DFF" stroke-width="3" fill="none"/>
+      </g>
+      <g transform="translate(786 585)">
+        <rect x="0" y="0" width="202" height="146" rx="14" fill="#fff" stroke="#E5EBF6"/>
+        <text x="18" y="32" class="label">Top Shops</text><text x="154" y="32" class="micro blue">View all</text>
+        <text x="18" y="72" class="micro">#3412</text><rect x="72" y="64" width="74" height="5" rx="3" fill="#075DFF"/><text x="156" y="72" class="micro">$1.2M</text>
+        <text x="18" y="104" class="micro">#2210</text><rect x="72" y="96" width="61" height="5" rx="3" fill="#075DFF"/><text x="156" y="104" class="micro">$1.1M</text>
+        <text x="18" y="136" class="micro">#1876</text><rect x="72" y="128" width="48" height="5" rx="3" fill="#075DFF"/><text x="156" y="136" class="micro">$980K</text>
+      </g>
+
+      <g transform="translate(196 755)">
+        <rect x="0" y="0" width="790" height="86" rx="16" fill="#fff" stroke="#E5EBF6"/>
+        <text x="18" y="34" class="label">Tasks &amp; Approvals</text>
+        <rect x="124" y="18" width="54" height="24" rx="12" fill="#E8F0FF"/><text x="140" y="35" class="micro blue">All (12)</text>
+        <text x="18" y="67" class="micro">Approval</text><text x="106" y="67" class="micro">Membership discount for John Smith</text><text x="530" y="67" class="micro" fill="#E61E1E">High</text><text x="610" y="67" class="micro">Sarah Johnson</text>
+        <rect x="706" y="44" width="68" height="30" rx="6" fill="#075DFF"/><text x="724" y="64" class="micro" fill="#fff">Review</text>
+      </g>
+    </g>
+  </g>
+</svg>
