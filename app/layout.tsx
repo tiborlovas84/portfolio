@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+function publicPath(path: string) {
+  return `${basePath}${path}`;
+}
+
 export const metadata: Metadata = {
   title: "Tibor Lovas - Product Designer",
   description:
@@ -24,8 +30,8 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/webflow/images/favicon.png",
-    apple: "/webflow/images/webclip.png",
+    icon: publicPath("/webflow/images/favicon.png"),
+    apple: publicPath("/webflow/images/webclip.png"),
   },
 };
 
@@ -93,9 +99,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="stylesheet" href="/webflow/css/normalize.css" />
-        <link rel="stylesheet" href="/webflow/css/webflow.css" />
-        <link rel="stylesheet" href="/webflow/css/tiborlovas.webflow.css" />
+        <link rel="stylesheet" href={publicPath("/webflow/css/normalize.css")} />
+        <link rel="stylesheet" href={publicPath("/webflow/css/webflow.css")} />
+        <link rel="stylesheet" href={publicPath("/webflow/css/tiborlovas.webflow.css")} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <Script
@@ -139,7 +145,7 @@ export default function RootLayout({
           integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
           crossOrigin="anonymous"
         />
-        <script src="/webflow/js/webflow.js" />
+        <script src={publicPath("/webflow/js/webflow.js")} />
       </body>
     </html>
   );

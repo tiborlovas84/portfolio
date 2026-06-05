@@ -18,17 +18,23 @@ const projectSectionIds = new Set([
   "Mercedes",
 ]);
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+function publicPath(path: string) {
+  return `${basePath}${path}`;
+}
+
 function rewriteLegacyPaths(html: string) {
   return html
-    .replaceAll('src="images/', 'src="/webflow/images/')
-    .replaceAll('srcset="images/', 'srcset="/webflow/images/')
-    .replaceAll(", images/", ", /webflow/images/")
-    .replaceAll('data-src="documents/', 'data-src="/webflow/documents/')
-    .replaceAll('href="case-study/', 'href="/webflow/case-study/')
-    .replaceAll('href="resume.html"', 'href="/webflow/resume.html"')
+    .replaceAll('src="images/', `src="${publicPath("/webflow/images/")}`)
+    .replaceAll('srcset="images/', `srcset="${publicPath("/webflow/images/")}`)
+    .replaceAll(", images/", `, ${publicPath("/webflow/images/")}`)
+    .replaceAll('data-src="documents/', `data-src="${publicPath("/webflow/documents/")}`)
+    .replaceAll('href="case-study/', `href="${publicPath("/webflow/case-study/")}`)
+    .replaceAll('href="resume.html"', `href="${publicPath("/webflow/resume.html")}"`)
     .replace(
       '<a href="/request-access?project=Road%20Assistance" target="_blank" class="button-primary button-outline w-button">Request Access</a>',
-      '<a href="/case-study/internal-platform" class="button-primary button-outline w-button">See Case Study</a>',
+      `<a href="${publicPath("/case-study/internal-platform")}" class="button-primary button-outline w-button">See Case Study</a>`,
     )
     .replace(
       /\s*<script src="https:\/\/d3e54v103j8qbb\.cloudfront\.net\/js\/jquery-3\.5\.1[^"]*"[^>]*><\/script>/i,

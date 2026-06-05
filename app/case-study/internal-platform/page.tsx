@@ -22,6 +22,12 @@ const sectionNav = [
   ["Outcomes", "outcomes"],
 ] as const;
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+function publicPath(path: string) {
+  return `${basePath}${path}`;
+}
+
 const impactHighlights: Pair[] = [
   ["Clearer high-risk workflows", "Complex flows were simplified with clearer states, guidance, and safeguards."],
   ["Fewer repeated handoff clarifications", "Roles, responsibilities, and information needs were made explicit."],
@@ -39,7 +45,7 @@ const complexity: Pair[] = [
 ];
 
 const complexityImages = complexity.map(
-  (_, index) => `/case-study/complexity-images/ChatGPT Image Jun 2, 2026, 12_45_35 PM (${index + 1}).png`,
+  (_, index) => publicPath(`/case-study/complexity-images/ChatGPT Image Jun 2, 2026, 12_45_35 PM (${index + 1}).png`),
 );
 
 const problems: Pair[] = [
@@ -319,7 +325,7 @@ export default function InternalPlatformCaseStudy() {
                 className={styles.heroImage}
                 height="941"
                 priority
-                src="/case-study/e45292be-aa4e-478e-9f28-0873f2cad328.png"
+                src={publicPath("/case-study/e45292be-aa4e-478e-9f28-0873f2cad328.png")}
                 unoptimized
                 width="1672"
               />
