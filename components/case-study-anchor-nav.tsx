@@ -8,10 +8,12 @@ export function CaseStudyAnchorNav({
   items,
   className,
   containerClassName,
+  menuClassName,
 }: {
   items: readonly Anchor[];
   className: string;
   containerClassName: string;
+  menuClassName?: string;
 }) {
   const [activeId, setActiveId] = useState(items[0]?.[1] ?? "");
 
@@ -63,16 +65,18 @@ export function CaseStudyAnchorNav({
   return (
     <nav className={className} aria-label="Case study sections">
       <div className={containerClassName}>
-        {items.map(([label, id]) => (
-          <a
-            aria-current={activeId === id ? "location" : undefined}
-            href={`#${id}`}
-            key={id}
-            onClick={(event) => scrollToSection(event, id)}
-          >
-            {label}
-          </a>
-        ))}
+        <div className={menuClassName}>
+          {items.map(([label, id]) => (
+            <a
+              aria-current={activeId === id ? "location" : undefined}
+              href={`#${id}`}
+              key={id}
+              onClick={(event) => scrollToSection(event, id)}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
       </div>
     </nav>
   );

@@ -1,4 +1,5 @@
 .page {
+  --case-accent: #6200ff;
   --heading-eyebrow-gap: 32px;
   --heading-subheadline-gap: 32px;
   --heading-content-gap: 40px;
@@ -165,6 +166,7 @@
 
 .eyebrow {
   display: block;
+  color: var(--case-accent);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .12em;
@@ -186,7 +188,7 @@
 .metaCard span,
 .visualHeader span,
 .areaDecisions strong {
-  color: currentColor;
+  color: var(--case-accent);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .1em;
@@ -199,34 +201,53 @@
 }
 
 .anchorNav {
+  display: flex;
   position: sticky;
   z-index: 5;
   top: 0;
   overflow-x: auto;
-  background: #ffffffed;
-  backdrop-filter: blur(12px);
+  padding-top: 0;
+  padding-bottom: 0;
+  background: var(--color--transparent);
 }
 
 .anchorNav .container {
   display: flex;
-  min-width: max-content;
+  justify-content: flex-start;
+  overflow: scroll;
+}
+
+.anchorMenu {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--space--s1);
+  border-radius: var(--radius--r2);
+  background-color: var(--color--light);
+  backdrop-filter: blur(5px);
 }
 
 .anchorNav a {
   border-radius: var(--radius--r3);
+  background-color: var(--color--transparent);
   color: var(--color--dark);
-  padding: 18px 16px;
-  font-size: 12px;
-  font-weight: 700;
+  padding: 20px;
+  font-size: var(--text--t0);
+  font-weight: 600;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   transition: all .2s ease-out;
 }
 
-.anchorNav a:hover,
-.anchorNav a[aria-current="location"] {
-  background: var(--color--light);
+.anchorNav a:hover {
+  background-color: var(--color--light);
   color: var(--color--brand);
+}
+
+.anchorNav a[aria-current="location"] {
+  background-color: var(--color--brand);
+  color: var(--color--white);
 }
 
 .section {
@@ -619,6 +640,7 @@
 }
 
 .rulesHeading span {
+  color: var(--case-accent);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .12em;
@@ -725,6 +747,10 @@
 .note h2 {
   max-width: 900px;
   margin-top: var(--heading-eyebrow-gap);
+}
+
+.note .eyebrow {
+  color: currentColor;
 }
 
 .note p {
