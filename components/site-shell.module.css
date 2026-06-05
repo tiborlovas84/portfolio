@@ -1,0 +1,148 @@
+.container {
+  width: 100%;
+  max-width: 1272px;
+  margin: 0 auto;
+  padding: 0 var(--space--s1);
+}
+
+.header {
+  padding-top: var(--space--s5);
+  background: var(--color--white);
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space--s2);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color--dark);
+  text-decoration: none;
+}
+
+.brandLogo,
+.brandLogo svg {
+  display: block;
+  height: 48px;
+}
+
+.brandLogo svg {
+  width: auto;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigationLink {
+  border-radius: var(--radius--r3);
+  color: var(--color--dark);
+  padding: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all .2s ease-out;
+}
+
+.navigationLink:hover {
+  background: var(--color--light);
+  color: var(--color--brand);
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.footer {
+  padding: var(--space--s6) 0 var(--space--s3);
+  background: var(--color--dark);
+  color: var(--color--white);
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space--s1) var(--space--s2);
+}
+
+.footerLinks a {
+  color: var(--color--white);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .2s ease-out;
+}
+
+.footerLinks a:hover {
+  color: #a98bff;
+}
+
+.copyright {
+  margin-top: var(--space--s5);
+  color: #ffffffa3;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 991px) {
+  .header {
+    padding-top: var(--space--s3);
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .mobileMenu {
+    display: block;
+    position: relative;
+  }
+
+  .mobileMenu summary {
+    border-radius: var(--radius--r3);
+    background: var(--color--light);
+    color: var(--color--dark);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    list-style: none;
+    padding: 14px 18px;
+    text-transform: uppercase;
+  }
+
+  .mobileMenu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobileMenu nav {
+    display: grid;
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 220px;
+    padding: var(--space--s05);
+    border: 2px solid var(--color--dark);
+    border-radius: var(--radius--r1);
+    background: var(--color--white);
+  }
+
+  .mobileMenu a {
+    border-radius: var(--radius--r3);
+    color: var(--color--dark);
+    padding: 12px 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .mobileMenu a:hover {
+    background: var(--color--light);
+    color: var(--color--brand);
+  }
+}

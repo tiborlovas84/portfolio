@@ -1,0 +1,25 @@
+@media (max-width: 991px) and (min-width: 768px) {
+  html.w-mod-js:not(.w-mod-ix)
+    [data-w-id="4c4a8565-b364-e4b7-519e-5c060079476a"] {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 480px) {
+  html.w-mod-js:not(.w-mod-ix)
+    [data-w-id="4c4a8565-b364-e4b7-519e-5c060079476a"] {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  html.w-mod-js:not(.w-mod-ix)
+    [data-w-id="4c4a8565-b364-e4b7-519e-5c060079476a"] {
+    opacity: 0;
+  }
+}
+
+::selection {
+  color: #ffffff;
+  background: #6200ff;
+}
