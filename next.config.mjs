@@ -1,5 +1,6 @@
 /** @type {import("next").NextConfig} */
-const isGithubPages = process.env.GITHUB_PAGES === "true";
+const isVercel = process.env.VERCEL === "1";
+const isGithubPages = process.env.GITHUB_PAGES === "true" && !isVercel;
 const basePath = isGithubPages ? "/portfolio" : "";
 
 const nextConfig = {
