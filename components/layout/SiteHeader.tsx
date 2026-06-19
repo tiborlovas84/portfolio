@@ -56,7 +56,7 @@ export function SiteHeader() {
 
   if (isGenomePage) {
     return (
-      <header className="z-40">
+      <header className="z-40 pt-8">
         <div className="container p-1">
           <div className="flex h-20 items-center justify-between rounded-[2rem] bg-background/70 px-micro backdrop-blur-2xl transition-colors duration-300 ease-out">
             <Link
