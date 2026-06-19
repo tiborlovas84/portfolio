@@ -1,0 +1,23 @@
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+
+export function EditorialHero() {
+  return (
+    <section className="container pb-16 pt-28 md:pb-24 md:pt-36">
+      <div className="max-w-6xl">
+        <h1 className="text-[clamp(2.5rem,5.8vw,5.875rem)] font-black leading-[0.98]">
+          I&apos;m a <span className="text-primary">Senior Product Designer</span> helping teams decide
+          what to build, what to cut, and how to turn the right ideas into scalable systems with
+          AI-assisted product thinking.
+        </h1>
+        <div className="mt-hero-lg">
+          <Button asChild size="xl">
+            <Link href="https://www.linkedin.com/in/tiborlovas/">
+              Let&apos;s Connect
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
