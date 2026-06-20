@@ -1,4 +1,29 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+/** @type {import("next").NextConfig} */
+const isVercel = process.env.VERCEL === "1";
+const isGithubPages = process.env.GITHUB_PAGES === "true" && !isVercel;
+const basePath = isGithubPages ? "/portfolio" : "";
+
+const nextConfig = {
+  ...(isGithubPages
+    ? {
+        basePath,
+        output: "export",
+        trailingSlash: true,
+      }
+    : {
+        async redirects() {
+          return [
+            {
+              source: "/request-access",
+              destination: "/webflow/request-access.html",
+              permanent: false,
+            },
+          ];
+        },
+      }),
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
+};
 
 export default nextConfig;
