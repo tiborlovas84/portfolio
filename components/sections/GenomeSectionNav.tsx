@@ -13,6 +13,7 @@ type GenomeSectionNavItem = {
 export function GenomeSectionNav({ items }: { items: GenomeSectionNavItem[] }) {
   const [activeId, setActiveId] = useState(items[0]?.href.replace("#", "") ?? "");
   const activeLinkRef = useRef<HTMLAnchorElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const animationFrameRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -56,10 +57,17 @@ export function GenomeSectionNav({ items }: { items: GenomeSectionNavItem[] }) {
   }, [items]);
 
   useEffect(() => {
-    activeLinkRef.current?.scrollIntoView({
+    const activeLink = activeLinkRef.current;
+    const scrollContainer = scrollContainerRef.current;
+
+    if (!activeLink || !scrollContainer) return;
+
+    scrollContainer.scrollTo({
+      left:
+        activeLink.offsetLeft -
+        scrollContainer.clientWidth / 2 +
+        activeLink.clientWidth / 2,
       behavior: "smooth",
-      block: "nearest",
-      inline: "center",
     });
   }, [activeId]);
 
@@ -68,7 +76,10 @@ export function GenomeSectionNav({ items }: { items: GenomeSectionNavItem[] }) {
       className="sticky top-0 z-30 container p-1"
       aria-label="Genome sections"
     >
-      <div className="scrollbar-none flex items-center overflow-x-auto whitespace-nowrap rounded-[2rem] bg-background/70 p-1 backdrop-blur-2xl">
+      <div
+        ref={scrollContainerRef}
+        className="scrollbar-none flex items-center overflow-x-auto whitespace-nowrap rounded-[2rem] p-1 text-9 font-semibold uppercase text-foreground backdrop-blur-2xl"
+      >
         {items.map((item) => {
           const id = item.href.replace("#", "");
           const isActive = activeId === id;
@@ -80,7 +91,7 @@ export function GenomeSectionNav({ items }: { items: GenomeSectionNavItem[] }) {
               href={item.href}
               aria-current={isActive ? "true" : undefined}
               className={cn(
-                "shrink-0 rounded-pill px-5 py-4 text-9 font-semibold uppercase text-foreground transition-colors duration-200 ease-out hover:bg-surface-soft hover:text-primary focus-visible:bg-surface-soft focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-surface-soft",
+                "shrink-0 rounded-pill px-5 py-4 transition-colors duration-200 ease-out hover:bg-surface-soft hover:text-primary focus-visible:bg-surface-soft focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-surface-soft",
                 isActive &&
                   "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus-visible:bg-primary focus-visible:text-primary-foreground",
               )}

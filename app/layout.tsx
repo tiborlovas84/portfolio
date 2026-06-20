@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
+import { Oswald, Poppins } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import "./globals.css";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
+});
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-oswald",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tiborlovas.com"),
@@ -29,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${poppins.variable} ${oswald.variable}`}>
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

@@ -13,29 +13,29 @@ export function SuccessStoriesSection() {
         />
         <div className="grid gap-hero">
           <figure className="grid gap-content">
-            <span className="flex h-10 items-center text-5 font-bold leading-none" aria-hidden="true">
+            <span className="flex h-10 items-center font-accent text-5 font-bold leading-none" aria-hidden="true">
               &ldquo;
             </span>
-            <blockquote className="text-7 font-medium">
+            <blockquote className="text-7">
               Tibor&apos;s leadership and talent enabled the team to pull off a really complex
               challenge - redesign of the entire Gooten interface and new Shopify app.
             </blockquote>
             <figcaption className="text-right">
               <p className="text-7 font-extrabold">Boris Krstovic</p>
-              <p className="mt-1 text-7 font-medium">Principal PM at Office Media Group</p>
+              <p className="mt-1 text-7">Principal PM at Office Media Group</p>
             </figcaption>
           </figure>
           <figure className="grid gap-content">
-            <span className="flex h-10 items-center text-5 font-bold leading-none" aria-hidden="true">
+            <span className="flex h-10 items-center font-accent text-5 font-bold leading-none" aria-hidden="true">
               &ldquo;
             </span>
-            <blockquote className="text-7 font-medium">
+            <blockquote className="text-7">
               As lead of the design team, Tibor was very motivating and encouraging for other
               designers with brilliant ideas for presentation.
             </blockquote>
             <figcaption className="text-right">
               <p className="text-7 font-extrabold">Milan Jovanovic</p>
-              <p className="mt-1 text-7 font-medium">Data Analyst at Gooten</p>
+              <p className="mt-1 text-7">Data Analyst at Gooten</p>
             </figcaption>
           </figure>
         </div>

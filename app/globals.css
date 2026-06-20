@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --font-poppins: "Poppins";
+    --font-oswald: "Oswald";
     --background: 1 0 0;
     --foreground: 0.177192 0.111213 275.163268;
     --card: 1 0 0;
@@ -96,8 +97,18 @@
   }
 
   body {
-    @apply bg-background font-sans text-foreground antialiased;
+    @apply font-sans text-foreground antialiased;
+    background-color: oklch(var(--surface-soft));
     font-feature-settings: "kern";
+  }
+
+  body.page-background-transition {
+    background-color: oklch(var(--surface-soft));
+    transition: background-color 700ms ease-out;
+  }
+
+  body.page-background-transition.page-background-transition-white {
+    background-color: oklch(var(--background));
   }
 
   ::selection {

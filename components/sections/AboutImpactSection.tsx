@@ -7,7 +7,7 @@ export function AboutImpactSection() {
     <section id="about" className="py-section">
       <div className="container grid gap-hero lg:grid-cols-[0.48fr_0.52fr] lg:items-end">
         <div className="grid gap-hero pb-hero lg:pl-section">
-          <p className="max-w-xl text-4 font-bold">
+          <p className="max-w-xl text-5 font-bold">
             I work with product owners, managers, and engineers to turn fast-moving ideas and
             AI-generated output into scalable, production-ready systems.
           </p>

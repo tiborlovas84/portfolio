@@ -8,6 +8,7 @@ import { CTASection } from "@/components/sections/CTASection";
 import { EditorialHero } from "@/components/sections/EditorialHero";
 import { FocusList } from "@/components/sections/FocusList";
 import { GenomeSectionNav } from "@/components/sections/GenomeSectionNav";
+import { PageBackgroundTransition } from "@/components/sections/PageBackgroundTransition";
 import { ProjectCard } from "@/components/sections/ProjectCard";
 import { ProjectShowcase } from "@/components/sections/ProjectShowcase";
 import { QuoteBlock } from "@/components/sections/QuoteBlock";
@@ -35,6 +36,7 @@ import {
 import { featuredProjects } from "@/content/projects";
 
 const type = genomeTypography.classes;
+const sectionAnchorOffset = "scroll-mt-20";
 const softSurfaceCard = "rounded-[2rem] bg-surface-soft";
 const compactSoftSurfaceCard = "rounded-[1.5rem] bg-surface-soft";
 const largeComponentTitles = new Set([
@@ -84,7 +86,7 @@ function GenomeSection({
   className?: string;
 }) {
   return (
-    <section id={id} className={`scroll-mt-44 py-section ${className}`}>
+    <section id={id} className={`${sectionAnchorOffset} py-section ${className}`}>
       <div className="container">
         <div className="mb-hero max-w-4xl">
           {eyebrow ? <p className="editorial-kicker mb-compact">{eyebrow}</p> : null}
@@ -271,7 +273,7 @@ function ComponentGallery() {
         <div className="mb-card flex items-center justify-between gap-micro">
           <p className="editorial-kicker">Component</p>
           {component.status === "unused" ? (
-            <GenomeStatusFlag>{component.status}</GenomeStatusFlag>
+            <GenomeStatusFlag variant="solid">{component.status}</GenomeStatusFlag>
           ) : null}
         </div>
         <h3 className={type.cardTitle}>{component.title}</h3>
@@ -307,7 +309,7 @@ function ComponentSpecimen({ title }: { title: string }) {
       <div className="mt-loose grid gap-micro">
         <p className="editorial-kicker">Variant / Non-sticky</p>
         <div className="rounded-[1.5rem] bg-background p-1">
-          <div className="flex min-h-20 items-center justify-between rounded-[2rem] bg-background/70 px-micro backdrop-blur-2xl">
+          <div className="flex min-h-20 items-center justify-between rounded-[2rem] px-micro">
             <BrandLogo className="h-10 w-auto shrink-0" />
             <div className="hidden items-center text-[0.7rem] font-semibold uppercase text-foreground xl:flex">
               {siteNavItems.map((item) => (
@@ -574,10 +576,12 @@ function PatternList() {
 
 export default function GenomePage() {
   return (
-    <>
-      <section className="container flex min-h-[calc(100svh-5rem)] flex-col justify-center pb-hero pt-hero-lg">
+    <PageBackgroundTransition>
+      <section
+        data-page-hero
+        className="container flex min-h-[calc(100svh-5rem)] flex-col justify-center pb-hero pt-hero-lg"
+      >
         <div className="max-w-6xl">
-          <p className="editorial-kicker mb-card">Genome / Design system</p>
           <h1 className={`max-w-5xl ${type.display}`}>
             <span className="text-primary">Genome</span>
             <br />
@@ -652,7 +656,7 @@ export default function GenomePage() {
         <EditorialList items={genomeContentRules} />
       </GenomeSection>
 
-      <section id="closing" className="scroll-mt-44 py-section">
+      <section id="closing" className={`${sectionAnchorOffset} py-section`}>
         <div className="container grid gap-loose md:grid-cols-[0.68fr_0.32fr] md:items-end">
           <h2 className={type.sectionTitle}>
             Genome keeps the portfolio reusable, editorial, and ready to scale as new product
@@ -671,6 +675,6 @@ export default function GenomePage() {
       </section>
 
       <CTASection />
-    </>
+    </PageBackgroundTransition>
   );
 }

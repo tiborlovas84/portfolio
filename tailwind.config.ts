@@ -98,7 +98,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-poppins)", "Poppins", "ui-sans-serif", "system-ui"],
-        accent: ["Oswald", "ui-sans-serif", "system-ui"],
+        accent: ["var(--font-oswald)", "Oswald", "ui-sans-serif", "system-ui"],
       },
       fontSize: {
         "1": ["clamp(4.5rem, 10vw, 7.5rem)", { lineHeight: "1", letterSpacing: "-0.02em" }],

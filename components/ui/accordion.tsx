@@ -46,7 +46,7 @@ export function Accordion({
               <span
                 className={cn(
                   "grid items-center gap-tight",
-                  showIndex && "md:grid-cols-[8rem_minmax(0,1fr)]",
+                  showIndex && "md:grid-cols-[3rem_minmax(0,1fr)]",
                 )}
               >
                 {showIndex ? (
@@ -89,11 +89,11 @@ export function Accordion({
                     isOpen && "opacity-100",
                   )}
                 >
-                  <div className="grid gap-tight md:grid-cols-[8rem_minmax(0,1fr)]">
+                  <div className="grid gap-tight md:grid-cols-[3rem_minmax(0,1fr)]">
                     {showIndex ? <div aria-hidden="true" /> : null}
                     <div
                       className={cn(
-                        "max-w-3xl space-y-5 text-7 font-semibold text-muted-foreground",
+                        "max-w-3xl space-y-5 text-7 font-normal text-muted-foreground",
                         !showIndex && "md:col-span-2",
                       )}
                     >

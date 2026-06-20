@@ -8,12 +8,15 @@ type QuoteBlockProps = {
 export function QuoteBlock({ quote, name, title, signals = [] }: QuoteBlockProps) {
   return (
     <figure className="grid min-h-[34rem] gap-card rounded-[2rem] bg-editorial-mist p-card md:p-hero">
-      <span className="flex h-16 items-center text-2 font-bold leading-none" aria-hidden="true">
+      <span
+        className="mb-content block size-12 overflow-hidden font-accent text-2 font-bold leading-none"
+        aria-hidden="true"
+      >
         &ldquo;
       </span>
       <blockquote className="max-w-3xl text-5">{quote}</blockquote>
       {signals.length ? (
-        <ul className="mt-content grid gap-micro text-7 font-medium">
+        <ul className="mt-content grid gap-micro text-7 font-normal">
           {signals.map((signal) => (
             <li key={signal}>{signal}</li>
           ))}
