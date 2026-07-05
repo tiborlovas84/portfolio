@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
 import { CaseStudyIterationTabs } from "@/components/sections/CaseStudyIterationTabs";
 import { CTASection } from "@/components/sections/CTASection";
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const sectionNav = [
-  { href: "#impact", label: "Impact" },
+  { href: "#impact", label: "Overview" },
   { href: "#problem", label: "Problem" },
   { href: "#role", label: "Role" },
   { href: "#solution", label: "Solution" },
@@ -26,11 +26,31 @@ const sectionNav = [
   { href: "#measurement", label: "Measurement" },
 ] as const;
 
-const impactHighlights = [
-  ["Clearer high-risk workflows", "Complex flows were simplified with clearer states, guidance, and safeguards."],
-  ["Fewer repeated handoff clarifications", "Roles, responsibilities, and information needs were made explicit."],
-  ["Reusable Radix-based patterns", "Consistent, accessible components scaled across the product."],
-  ["Stronger foundation for future modules", "Design system patterns enabled faster, more consistent delivery."],
+const impactMetrics = [
+  {
+    delta: "+X%",
+    title: "Membership changes completed",
+    body: "More updates finished without restarts, handoffs, or manual support.",
+    direction: "up",
+  },
+  {
+    delta: "-X%",
+    title: "Cost calculation time",
+    body: "Operators calculated pricing, discounts, and membership changes faster.",
+    direction: "down",
+  },
+  {
+    delta: "-X%",
+    title: "Billing correction requests",
+    body: "Fewer incorrect charges, refunds, adjustments, and manual billing fixes.",
+    direction: "down",
+  },
+  {
+    delta: "+X%",
+    title: "Renewal and upgrade readiness",
+    body: "More accounts were correctly set up for renewals, upgrades, and recurring billing.",
+    direction: "up",
+  },
 ] as const;
 
 const projectMeta = [
@@ -228,6 +248,40 @@ function PairGrid({ items }: { items: readonly (readonly [string, string])[] }) 
   );
 }
 
+function ImpactMetricsPanel() {
+  return (
+    <div className="overflow-hidden rounded-[1.75rem] border border-primary/15 bg-background shadow-editorial">
+      <div className="grid md:grid-cols-4">
+        {impactMetrics.map((metric) => {
+          const Icon = metric.direction === "up" ? ArrowUpRight : ArrowDownRight;
+
+          return (
+            <article
+              key={metric.title}
+              className="grid gap-content p-card text-center md:min-h-[24rem] md:border-l md:border-primary/10 md:first:border-l-0"
+            >
+              <div className="mx-auto flex size-16 items-center justify-center rounded-pill bg-primary/10 text-primary">
+                <Icon className="size-8" strokeWidth={2.6} aria-hidden="true" />
+              </div>
+              <div>
+                <p className="text-[clamp(3rem,7vw,5.5rem)] font-bold leading-none text-foreground">
+                  {metric.delta}
+                </p>
+                <h3 className="mx-auto mt-content max-w-52 text-5 font-bold leading-tight">
+                  {metric.title}
+                </h3>
+              </div>
+              <p className="mx-auto max-w-56 text-7 font-medium leading-snug text-muted-foreground">
+                {metric.body}
+              </p>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function VisualPairGrid({
   images,
   items,
@@ -321,7 +375,7 @@ export default function ManagingMembershipsAtScaleOneOne() {
         title="The work turned a complex internal platform into safer workflows and reusable foundations."
         soft
       >
-        <PairGrid items={impactHighlights} />
+        <ImpactMetricsPanel />
         <div id="overview" className="mt-hero grid max-w-4xl gap-content scroll-mt-24 text-6 text-muted-foreground">
           <p className="editorial-kicker text-primary">Overview</p>
           <h3 className="text-4 font-bold text-foreground">This was not just a UI refresh.</h3>
