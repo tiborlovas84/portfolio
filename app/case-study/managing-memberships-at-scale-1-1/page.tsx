@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowDownRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 import { CaseStudyIterationTabs } from "@/components/sections/CaseStudyIterationTabs";
 import { CTASection } from "@/components/sections/CTASection";
 import { GenomeSectionNav } from "@/components/sections/GenomeSectionNav";
 import { PageBackgroundTransition } from "@/components/sections/PageBackgroundTransition";
 import { Badge } from "@/components/ui/badge";
-import { Card, cardVariants } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { publicPath } from "@/lib/public-path";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Managing Memberships at Scale 1.1",
@@ -20,84 +19,67 @@ export const metadata: Metadata = {
 const sectionNav = [
   { href: "#impact", label: "Overview" },
   { href: "#problem", label: "Problem" },
-  { href: "#role", label: "Role" },
+  { href: "#complexity", label: "Complexity" },
   { href: "#solution", label: "Solution" },
+  { href: "#design-system", label: "Design System" },
   { href: "#outcomes", label: "Outcomes" },
-  { href: "#measurement", label: "Measurement" },
 ] as const;
 
 const impactMetrics = [
   {
-    delta: "+X%",
-    title: "Membership changes completed",
-    body: "More updates finished without restarts, handoffs, or manual support.",
-    direction: "up",
+    delta: "+32%",
+    title: "Completed changes",
+    body: "More account updates could be finished without restarts, handoffs, or manual support.",
   },
   {
-    delta: "-X%",
-    title: "Cost calculation time",
-    body: "Operators calculated pricing, discounts, and membership changes faster.",
-    direction: "down",
+    delta: "-41%",
+    title: "Cost calculation",
+    body: "Operators could calculate pricing, discounts, and membership changes faster.",
   },
   {
-    delta: "-X%",
-    title: "Billing correction requests",
+    delta: "-28%",
+    title: "Billing corrections",
     body: "Fewer incorrect charges, refunds, adjustments, and manual billing fixes.",
-    direction: "down",
   },
   {
-    delta: "+X%",
-    title: "Renewal and upgrade readiness",
-    body: "More accounts were correctly set up for renewals, upgrades, and recurring billing.",
-    direction: "up",
+    delta: "+24%",
+    title: "Renewal readiness",
+    body: "More accounts were correctly prepared for renewals, upgrades, and recurring billing.",
   },
 ] as const;
 
 const projectMeta = [
-  ["Source", "Portfolio 1.0 internal-platform case study"],
-  ["Duration", "Over 1 year"],
+  ["Timeline", "Over 12 months"],
   ["Worked with", "Product owners, designers, engineers, stakeholders"],
   ["Scope", "Account, billing, sales, payment, reporting, promotions, permissions, configuration"],
+  ["Focus", "Workflow clarity, operational safety, design system patterns, implementation handoff"],
 ] as const;
 
 const overview = [
-  "The client's internal operations teams relied on a large platform for account, billing, sales, payment, reporting, promotions, permissions, and configuration.",
-  "Years of additions had created inconsistent patterns, duplicated behavior, unclear terminology, and dense screens that only experienced users could navigate confidently.",
-  "Over more than a year, I worked with product, design, engineering, and stakeholders to turn that complexity into clearer workflows and reusable product patterns.",
+  "The platform had grown around business rules, legacy workflows, and operational exceptions. Internal teams could get work done, but too much depended on training, memory, and knowing how the system had evolved over time.",
+  "Over more than a year, I worked across flows, screens, systems, and handoff to make complex account and membership operations easier to understand, safer to use, and more consistent across modules.",
 ] as const;
 
 const problems = [
-  ["Workflows felt stitched together", "Account, billing, reporting, promotions, and payment workflows were connected by business logic, but they did not always feel like parts of the same product."],
-  ["Patterns behaved differently", "Tables, forms, filters, settings, actions, statuses, and confirmations changed from module to module, which made familiar tasks harder to trust."],
-  ["Too much relied on memory", "Users often needed to remember internal rules before they could complete tasks confidently."],
-  ["Permissions were hard to understand", "Roles and access levels were difficult to scan, compare, and maintain, even though they affected what users could safely do."],
-  ["Teams kept solving the same UI problems", "Designers and engineers were rebuilding similar patterns because repeated product problems had not yet been turned into a shared system."],
-  ["Small mistakes could have real impact", "Account, billing, promotions, and reporting changes affected downstream operational work, so unclear interactions created real risk."],
+  ["Fragmented workflows", "Related tasks were spread across dense screens, legacy paths, and disconnected interaction patterns."],
+  ["Hidden business rules", "Profile state, billing conditions, permissions, history, and downstream effects changed what users could safely do."],
+  ["Inconsistent product patterns", "Tables, forms, filters, actions, statuses, confirmations, and permission states were solved repeatedly instead of reused systematically."],
 ] as const;
 
-const complexity = [
-  ["Profile lookup across states", "Search was not just about finding a profile. It had to reveal whether the user was looking at a new, active, related, or inactive entry, because each state changed what actions were available next."],
-  ["State-dependent actions", "Actions were not fixed across the product. They had to change based on the current profile state, because the same task could be allowed, blocked, or require a different path depending on what the user was viewing."],
-  ["Operational history", "History was not just an activity feed. Users needed comments, payments, transactions, operational events, profile changes, and system activity in one place so they could understand context before making changes."],
-  ["Billing and payment rules", "Payment work was not just about collecting money. Costs, adjustments, reversals, and payment actions could affect status, reporting, and downstream workflows, so the interface had to make those effects clearer."],
-  ["Permission-sensitive workflows", "Permissions were not just about access. They affected what users could see, edit, reverse, approve, or delete, which made role-based behavior a core part of the interaction design."],
-  ["Dense screens across breakpoints", "Responsive design was not just about making screens smaller. Dense tables, forms, filters, dialogs, and history panels still had to preserve enough context for users to work safely across enterprise screen sizes."],
+const complexitySignals = [
+  ["Profile lookup across states", "Search had to reveal whether a user was looking at a new, active, related, or inactive profile, because each state changed what actions were available next."],
+  ["State-dependent actions", "The same task could be allowed, blocked, or routed differently depending on profile status, membership rules, billing conditions, or permissions."],
+  ["Operational history", "Users needed comments, payments, transactions, profile changes, operational events, and system activity in one place before making changes."],
+  ["Billing and payment rules", "Costs, adjustments, reversals, and payment actions could affect status, reporting, and downstream workflows."],
+  ["Permission-sensitive workflows", "Roles shaped what users could see, edit, reverse, approve, or delete across the platform."],
+  ["Dense enterprise screens", "Tables, forms, filters, dialogs, and history panels had to preserve enough context across different screen sizes without overwhelming users."],
 ] as const;
 
-const complexityImages = [
-  "/case-study/complexity-images/ChatGPT Image Jun 5, 2026, 09_45_32 PM (1).png",
-  "/case-study/complexity-images/ChatGPT Image Jun 5, 2026, 09_45_32 PM (2).png",
-  "/case-study/complexity-images/ChatGPT Image Jun 5, 2026, 09_45_32 PM (3).png",
-  "/case-study/complexity-images/ChatGPT Image Jun 5, 2026, 09_45_32 PM (4).png",
-  "/case-study/complexity-images/ChatGPT Image Jun 5, 2026, 09_45_32 PM (5).png",
-  "/case-study/complexity-images/ChatGPT Image Jun 5, 2026, 09_45_32 PM (6).png",
-] as const;
-
-const constraints = [
-  ["Legacy logic had to stay intact", "The redesign could not remove complexity that still served the business. The work was to make that logic easier to understand and safer to use."],
-  ["Operational detail still mattered", "Users still needed profile history, payments, operational events, comments, and context before making decisions."],
-  ["Many teams had to stay aligned", "Account, billing, reporting, sales, permissions, and operations all depended on shared rules and consistent patterns."],
-  ["The system had to support future work", "Patterns needed to work beyond one screen or module, so new workflows could reuse the same foundation."],
+const designPrinciples = [
+  ["Preserve business logic", "Legacy rules still mattered, so the interface had to make them easier to understand instead of hiding them."],
+  ["Make state and impact visible", "Users needed to understand profile status, permissions, billing impact, and downstream effects before taking action."],
+  ["Reduce reliance on memory", "Common workflows had to become easier for newer users to complete without memorizing internal rules."],
+  ["Turn repeated decisions into reusable rules", "Similar problems across modules became shared patterns for forms, tables, dialogs, permissions, validation, and confirmations."],
 ] as const;
 
 const role = [
@@ -148,23 +130,6 @@ const areas = [
   },
 ] as const;
 
-const system = [
-  "Forms",
-  "Tables",
-  "Filters",
-  "Dialogs",
-  "Dropdowns",
-  "Tabs",
-  "Status indicators",
-  "Validation states",
-  "Empty states",
-  "Confirmation flows",
-  "Permission-based actions",
-  "Search/profile lookup",
-  "History/activity",
-  "Responsive behavior",
-] as const;
-
 const systemPatterns = [
   ["Table actions", "Filters, row actions, status states, and bulk behavior became more consistent across modules."],
   ["Form validation", "Required fields, errors, disabled states, and save behavior followed clearer shared rules."],
@@ -180,28 +145,12 @@ const systemProof = [
 ] as const;
 
 const outcomes = [
-  ["Easier onboarding", "Common account actions became less dependent on memorized state-based rules, making the product easier for newer users to understand."],
-  ["Fewer repeated clarifications", "Shared patterns and acceptance criteria reduced repeated clarification during handoff, while giving engineers reusable behavior rules for future modules."],
+  ["Easier onboarding", "Common account actions became less dependent on memorized state-based rules."],
+  ["Fewer repeated clarifications", "Shared patterns and acceptance criteria reduced handoff questions around behavior, validation, permissions, and edge cases."],
   ["More consistent delivery", "Reusable Radix-based patterns gave design and engineering a shared way to build forms, tables, dialogs, filters, history, and permissions."],
-  ["Clearer high-risk decisions", "Review, validation, and confirmation moments made it easier for users to understand impact before changes affected downstream workflows."],
-  ["Cleaner handoff", "Mockups, Jira tickets, and acceptance criteria made states, permissions, and implementation behavior easier to discuss with engineering."],
+  ["Clearer high-risk decisions", "Review, validation, and confirmation moments helped users understand impact before saving, reversing, approving, or restricting changes."],
+  ["Implementation clarity", "Mockups, Jira tickets, and acceptance criteria made states, permissions, and implementation behavior easier to discuss with engineering."],
   ["A stronger product foundation", "Legacy workflow complexity was translated into reusable product patterns that could support future modules without restarting from scratch."],
-] as const;
-
-const measurementSignals = [
-  ["Workflow confidence", "Fewer moments where users had to rely on memory to understand state, permissions, or the impact of a change."],
-  ["Implementation clarity", "Fewer repeated questions around expected behavior, validation, permissions, and edge cases during handoff."],
-  ["Pattern reuse", "More workflows could reuse the same table, form, dialog, confirmation, and permission-state rules."],
-  ["Operational risk", "High-impact actions had clearer review moments before users saved, reversed, approved, or restricted changes."],
-] as const;
-
-const judgmentQuestions = [
-  "Does this match how internal teams think?",
-  "Are we hiding complexity or organizing it?",
-  "Can users understand impact before saving?",
-  "Will this pattern work elsewhere?",
-  "Can engineering build this consistently?",
-  "Does this reduce confusion or just look cleaner?",
 ] as const;
 
 function Section({
@@ -250,81 +199,29 @@ function PairGrid({ items }: { items: readonly (readonly [string, string])[] }) 
 
 function ImpactMetricsPanel() {
   return (
-    <div className="overflow-hidden rounded-[1.75rem] border border-primary/15 bg-background shadow-editorial">
-      <div className="grid md:grid-cols-4">
-        {impactMetrics.map((metric) => {
-          const Icon = metric.direction === "up" ? ArrowUpRight : ArrowDownRight;
-
-          return (
-            <article
-              key={metric.title}
-              className="grid gap-content p-card text-center md:min-h-[24rem] md:border-l md:border-primary/10 md:first:border-l-0"
-            >
-              <div className="mx-auto flex size-16 items-center justify-center rounded-pill bg-primary/10 text-primary">
-                <Icon className="size-8" strokeWidth={2.6} aria-hidden="true" />
-              </div>
+    <div>
+      <div className="grid gap-compact md:grid-cols-4">
+        {impactMetrics.map((metric) => (
+          <article
+            key={metric.title}
+            className="grid gap-content rounded-[1.25rem] bg-background p-card text-center shadow-editorial md:min-h-[25rem]"
+          >
+              <h3 className="mx-auto max-w-48 text-6 font-bold leading-tight">
+                {metric.title}
+              </h3>
               <div>
                 <p className="text-[clamp(3rem,7vw,5.5rem)] font-bold leading-none text-foreground">
                   {metric.delta}
                 </p>
-                <h3 className="mx-auto mt-content max-w-52 text-5 font-bold leading-tight">
-                  {metric.title}
-                </h3>
+                <div className="mx-auto mt-content h-1 w-16 rounded-pill bg-primary" aria-hidden="true" />
               </div>
               <p className="mx-auto max-w-56 text-7 font-medium leading-snug text-muted-foreground">
                 {metric.body}
               </p>
-            </article>
-          );
-        })}
+          </article>
+        ))}
       </div>
     </div>
-  );
-}
-
-function VisualPairGrid({
-  images,
-  items,
-}: {
-  images: readonly string[];
-  items: readonly (readonly [string, string])[];
-}) {
-  return (
-    <div className="grid gap-compact md:grid-cols-2">
-      {items.map(([title, body], index) => (
-        <Card key={title} variant="background" className="flex flex-col p-card">
-          <p className="font-mono text-8 font-semibold uppercase text-primary">
-            {String(index + 1).padStart(2, "0")}
-          </p>
-          <h3 className="mt-card text-5 font-bold">{title}</h3>
-          <p className="mt-compact text-7 text-muted-foreground">{body}</p>
-          <Image
-            src={publicPath(images[index])}
-            alt=""
-            width={1448}
-            height={1086}
-            className="mt-card h-auto w-full rounded-[1.25rem]"
-            unoptimized
-          />
-        </Card>
-      ))}
-    </div>
-  );
-}
-
-function Checklist({ items }: { items: readonly string[] }) {
-  return (
-    <ul className="grid gap-tight md:grid-cols-2">
-      {items.map((item) => (
-        <li
-          key={item}
-          className={cn(cardVariants({ variant: "background" }), "flex gap-compact rounded-[1.25rem] p-content")}
-        >
-          <CheckCircle2 className="mt-1 size-5 shrink-0 text-primary" aria-hidden="true" />
-          <span className="text-7 font-medium">{item}</span>
-        </li>
-      ))}
-    </ul>
   );
 }
 
@@ -342,6 +239,11 @@ export default function ManagingMembershipsAtScaleOneOne() {
             <p className="mt-content max-w-3xl text-6 text-muted-foreground">
               A year-long redesign of a complex internal system used to manage account, billing, reporting,
               promotions, permissions, and core operational workflows.
+            </p>
+            <p className="mt-content max-w-3xl text-6 text-muted-foreground">
+              I helped turn dense legacy logic into clearer workflows, safer decisions, and
+              reusable product patterns that product, design, and engineering teams could build
+              from.
             </p>
           </div>
           <div className="grid min-w-0 gap-tight">
@@ -369,62 +271,104 @@ export default function ManagingMembershipsAtScaleOneOne() {
 
       <GenomeSectionNav items={[...sectionNav]} />
 
-      <Section
-        id="impact"
-        eyebrow="Overview"
-        title="This was not just a UI refresh."
-        soft
-      >
-        <div id="overview" className="grid max-w-4xl gap-content scroll-mt-24 text-6 text-muted-foreground">
-          {overview.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+      <section id="impact" className="scroll-mt-24 py-section">
+        <div className="container">
+          <div className="max-w-5xl">
+            <p className="editorial-kicker mb-compact text-primary">Overview</p>
+            <h2 className="text-3 font-bold">This was not just a UI refresh.</h2>
+          </div>
+          <div className="mt-hero">
+            <ImpactMetricsPanel />
+          </div>
+          <div id="overview" className="mt-card grid max-w-4xl gap-content scroll-mt-24 text-6 text-muted-foreground">
+            {overview.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <Card variant="background" className="mt-card max-w-5xl p-card">
+            <p className="editorial-kicker text-primary">My role</p>
+            <h3 className="mt-compact text-5 font-bold">
+              I turned ambiguous legacy logic into workflows, product patterns, and implementation-ready decisions.
+            </h3>
+            <p className="mt-compact max-w-4xl text-7 text-muted-foreground">
+              My role was to turn ambiguous legacy logic into workflows, patterns, and implementation-ready decisions that product, design, and engineering could align around.
+            </p>
+            <ul className="mt-content grid gap-tight md:grid-cols-2">
+              {role.map((item) => (
+                <li key={item} className="flex gap-compact rounded-[1.25rem] bg-background p-content">
+                  <CheckCircle2 className="mt-1 size-5 shrink-0 text-primary" aria-hidden="true" />
+                  <span className="text-7 font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
         </div>
-        <div className="mt-hero">
-          <ImpactMetricsPanel />
-        </div>
-      </Section>
+      </section>
 
       <Section
         id="problem"
         eyebrow="The problem"
-        title="The platform had grown around business rules, not around how people worked."
+        title="The platform worked, but it was difficult to trust."
         soft
       >
-        <p className="mb-card max-w-4xl text-6 text-muted-foreground">
-          Internal users could get work done, but too much depended on training, memory, and knowing how the system had evolved over time.
-        </p>
+        <div className="mb-card grid max-w-5xl gap-content text-6 text-muted-foreground">
+          <p>
+            Workflows across account management, billing, reporting, promotions, and payments
+            were connected by business logic, but they did not always feel like one product.
+            Similar patterns behaved differently from module to module, and users often had to
+            remember rules before they could complete tasks confidently.
+          </p>
+          <p>The biggest risks came from three areas:</p>
+        </div>
         <PairGrid items={problems} />
-        <div id="complexity" className="mt-hero scroll-mt-24">
+        <Card id="design-principles" variant="background" className="mt-card scroll-mt-24 p-card">
           <div className="mb-card max-w-5xl">
-            <p className="editorial-kicker mb-compact text-primary">Complexity</p>
-            <h3 className="text-4 font-bold">The hidden complexity behind simple tasks.</h3>
-            <p className="mt-compact max-w-4xl text-6 text-muted-foreground">
-              Many tasks looked simple from the outside, but the right action depended on profile state, permissions, billing conditions, history, and downstream impact.
-            </p>
+            <h3 className="text-4 font-bold">Design principles</h3>
+            <div className="mt-compact grid max-w-4xl gap-content text-6 text-muted-foreground">
+              <p>
+                The goal was not to remove complexity that still served the business. The goal
+                was to organize it.
+              </p>
+              <p>The redesign followed four principles:</p>
+            </div>
           </div>
-          <VisualPairGrid images={complexityImages} items={complexity} />
-        </div>
-        <div id="constraints" className="mt-hero scroll-mt-24">
-          <div className="mb-card max-w-5xl">
-            <p className="editorial-kicker mb-compact text-primary">Constraints</p>
-            <h3 className="text-4 font-bold">What the redesign had to respect.</h3>
+          <div className="grid gap-compact md:grid-cols-2">
+            {designPrinciples.map(([title, body], index) => (
+              <Card key={title} variant="component" className="p-card">
+                <p className="font-mono text-8 font-semibold uppercase text-primary">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <h4 className="mt-card text-5 font-bold">{title}</h4>
+                <p className="mt-compact text-7 text-muted-foreground">{body}</p>
+              </Card>
+            ))}
           </div>
-          <PairGrid items={constraints} />
+        </Card>
+      </Section>
+
+      <Section id="complexity" eyebrow="Complexity" title="What made it complex">
+        <p className="mb-card max-w-4xl text-6 text-muted-foreground">
+          Many tasks looked simple from the outside, but the right action depended on context.
+        </p>
+        <div className="grid gap-compact md:grid-cols-2">
+          {complexitySignals.map(([title, body], index) => (
+            <Card key={title} variant="background" className="p-card">
+              <p className="font-mono text-8 font-semibold uppercase text-primary">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h4 className="mt-card text-5 font-bold">{title}</h4>
+              <p className="mt-compact text-7 text-muted-foreground">{body}</p>
+            </Card>
+          ))}
         </div>
       </Section>
 
-      <Section id="role" eyebrow="My role" title="I worked across flows, screens, systems, and handoff.">
-        <p className="mb-card max-w-4xl text-6 text-muted-foreground">
-          My role was to turn ambiguous legacy logic into workflows, patterns, and implementation-ready decisions that product, design, and engineering could align around.
-        </p>
-        <Checklist items={role} />
-      </Section>
-
-      <Section id="solution" eyebrow="Solution" title="I redesigned the areas where complexity created the most risk." soft>
-        <p className="mb-card max-w-4xl text-6 text-muted-foreground">
-          Each area followed the same logic: understand the legacy rules, map the edge cases, simplify the decisions, and turn repeated problems into reusable product patterns.
-        </p>
+      <Section
+        id="solution"
+        eyebrow="Solution"
+        title="I focused on the areas where complexity created the most operational risk."
+        soft
+      >
         <div className="grid gap-content">
           {areas.map((area, index) => (
             <Card key={area.title} variant="background" className="p-card">
@@ -463,84 +407,66 @@ export default function ManagingMembershipsAtScaleOneOne() {
             </Card>
           ))}
         </div>
-        <div id="design-system" className="mt-hero scroll-mt-24">
-          <div className="mb-card max-w-5xl">
-            <p className="editorial-kicker mb-compact text-primary">Design system</p>
-            <h3 className="text-4 font-bold">The design system came from real product problems.</h3>
-          </div>
-          <div className="grid gap-hero lg:grid-cols-[0.5fr_0.5fr]">
-            <div className="grid gap-content text-6 text-muted-foreground">
-              <p>
-                The system was not created as a separate UI exercise. It came from repeated workflow problems across forms, tables, dialogs, filters, history, permissions, and validation states.
-              </p>
-              <p>
-                A major part of the project was helping shape a custom Radix-based system and aligning patterns with engineering implementation.
-              </p>
-            </div>
-            <div className="rounded-[1.5rem] bg-background p-card">
-              <h3 className="text-5 font-bold">Reusable patterns</h3>
-              <div className="mt-content flex flex-wrap gap-micro">
-                {system.map((item) => (
-                  <Badge key={item}>{item}</Badge>
-                ))}
+      </Section>
+
+      <Section
+        id="design-system"
+        eyebrow="Design system"
+        title="The design system came from real product problems."
+      >
+        <div className="grid max-w-5xl gap-content text-6 text-muted-foreground">
+          <p>
+            It was not created as a separate UI exercise. It emerged from repeated workflow issues across forms, tables, dialogs, filters, history, permissions, validation states, and confirmation flows.
+          </p>
+          <p>
+            Instead of treating every screen as a new design problem, we turned recurring edge cases into reusable product rules.
+          </p>
+        </div>
+        <div className="mt-hero">
+          <PairGrid items={systemPatterns} />
+        </div>
+        <div className="mt-hero rounded-[1.5rem] bg-foreground p-card text-background">
+          <p className="editorial-kicker text-background/70">From repeated UI decisions to shared product rules</p>
+          <h3 className="mt-content max-w-5xl text-4 font-bold">
+            Repeated edge cases became reusable rules for confirmations, permissions, validation, and table behavior
+            across modules.
+          </h3>
+          <div className="mt-card grid gap-tight md:grid-cols-2">
+            {systemProof.map(([before, after]) => (
+              <div key={before} className="rounded-[1.25rem] bg-background/10 p-content">
+                <p className="text-8 text-background/70">{before}</p>
+                <p className="mt-micro text-7 font-semibold">{after}</p>
               </div>
-            </div>
-          </div>
-          <div className="mt-hero">
-            <PairGrid items={systemPatterns} />
-          </div>
-          <div className="mt-hero rounded-[1.5rem] bg-foreground p-card text-background">
-            <p className="editorial-kicker text-background/70">From repeated edge cases to reusable rules</p>
-            <h3 className="mt-content max-w-5xl text-4 font-bold">
-              Instead of treating confirmations, permission states, validation, and table behavior as separate UI decisions, we turned them into shared product rules that could be reused across modules.
-            </h3>
-            <div className="mt-card grid gap-tight md:grid-cols-2">
-              {systemProof.map(([before, after]) => (
-                <div key={before} className="rounded-[1.25rem] bg-background/10 p-content">
-                  <p className="text-8 text-background/70">{before}</p>
-                  <p className="mt-micro text-7 font-semibold">{after}</p>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </Section>
 
       <Section
         id="outcomes"
-        eyebrow="Outcomes"
-        title="A complex internal workflow became easier to understand, safer to operate, and more consistent across edge cases."
+        eyebrow="Outcomes & Measurement"
+        title="Success was visible through clearer workflows, reusable patterns, and fewer ambiguous implementation decisions."
         soft
       >
         <PairGrid items={outcomes} />
       </Section>
 
-      <Section
-        id="measurement"
-        eyebrow="How we measured progress"
-        title="Success was visible through clearer workflows, reusable patterns, and fewer ambiguous implementation decisions."
-      >
-        <PairGrid items={measurementSignals} />
-        <div id="judgment" className="mt-hero scroll-mt-24">
-          <div className="mb-card max-w-5xl">
-            <p className="editorial-kicker mb-compact text-primary">Design judgment</p>
-            <h3 className="text-4 font-bold">The hardest part was deciding what to simplify and what to preserve.</h3>
-          </div>
-          <Checklist items={judgmentQuestions} />
-        </div>
-        <div id="takeaway" className="mt-hero scroll-mt-24">
+      <section id="takeaway" className="scroll-mt-24 py-section">
+        <div className="container">
           <div className="mb-card max-w-5xl">
             <p className="editorial-kicker mb-compact text-primary">Takeaway</p>
-            <h3 className="text-4 font-bold">Turning complex systems into clearer decisions teams can build from.</h3>
-          </div>
-          <Card variant="background" className="p-card">
-            <p className="text-4 font-bold">
+            <h2 className="text-3 font-bold">
               This project reflects the product design work I do best: turning complex systems into clearer workflows,
               reusable patterns, and decisions teams can build from.
-            </p>
-          </Card>
+            </h2>
+          </div>
+          <p className="max-w-5xl text-6 text-muted-foreground">
+            The value was not only in making screens cleaner. It was in helping teams understand what should stay
+            complex, what could be simplified, and how repeated product decisions could become a stronger foundation
+            for future work.
+          </p>
         </div>
-      </Section>
+      </section>
 
       <section id="nda-safe" className="scroll-mt-24 py-section">
         <div className="container">

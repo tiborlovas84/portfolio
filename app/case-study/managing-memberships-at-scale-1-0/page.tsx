@@ -23,7 +23,6 @@ const sectionNav = [
   { href: "#problem", label: "Problem" },
   { href: "#complexity", label: "Complexity" },
   { href: "#constraints", label: "Constraints" },
-  { href: "#role", label: "Role" },
   { href: "#solution", label: "Solution" },
   { href: "#design-system", label: "Design system" },
   { href: "#outcomes", label: "Outcomes" },
@@ -337,6 +336,23 @@ export default function PortfolioOneInternalPlatformIteration() {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
+        <Card variant="background" className="mt-card max-w-5xl p-card">
+          <p className="editorial-kicker text-primary">My role</p>
+          <h3 className="mt-compact text-5 font-bold">
+            I worked across flows, screens, systems, and handoff.
+          </h3>
+          <p className="mt-compact max-w-4xl text-7 text-muted-foreground">
+            My role was to turn ambiguous legacy logic into workflows, patterns, and implementation-ready decisions that product, design, and engineering could align around.
+          </p>
+          <ul className="mt-content grid gap-tight md:grid-cols-2">
+            {role.map((item) => (
+              <li key={item} className="flex gap-compact rounded-[1.25rem] bg-background p-content">
+                <CheckCircle2 className="mt-1 size-5 shrink-0 text-primary" aria-hidden="true" />
+                <span className="text-7 font-medium">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </Card>
       </Section>
 
       <Section
@@ -360,13 +376,6 @@ export default function PortfolioOneInternalPlatformIteration() {
 
       <Section id="constraints" eyebrow="Constraints" title="What the redesign had to respect." soft>
         <PairGrid items={constraints} />
-      </Section>
-
-      <Section id="role" eyebrow="My role" title="I worked across flows, screens, systems, and handoff.">
-        <p className="mb-card max-w-4xl text-6 text-muted-foreground">
-          My role was to turn ambiguous legacy logic into workflows, patterns, and implementation-ready decisions that product, design, and engineering could align around.
-        </p>
-        <Checklist items={role} />
       </Section>
 
       <Section id="solution" eyebrow="Solution" title="I redesigned the areas where complexity created the most risk." soft>
