@@ -13,7 +13,7 @@ export function EditorialHero() {
         <div className="mt-hero md:mt-hero-lg">
           <Button asChild size="xl">
             <Link href="https://www.linkedin.com/in/tiborlovas/">
-              Let&apos;s Connect.
+              Let&apos;s Connect
             </Link>
           </Button>
         </div>
