@@ -1,13 +1,8 @@
 import Image from "next/image";
+import { publicPath } from "@/lib/public-path";
 import type { Pair, SolutionArea, SolutionVisual } from "./content";
 import { complexityImagePaths } from "./content";
 import styles from "./page.module.css";
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
-export function publicPath(path: string) {
-  return `${basePath}${path}`;
-}
 
 export function Pill({ children }: { children: React.ReactNode }) {
   return <span className={styles.pill}>{children}</span>;

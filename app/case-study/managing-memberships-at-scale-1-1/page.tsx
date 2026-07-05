@@ -8,6 +8,7 @@ import { GenomeSectionNav } from "@/components/sections/GenomeSectionNav";
 import { PageBackgroundTransition } from "@/components/sections/PageBackgroundTransition";
 import { Badge } from "@/components/ui/badge";
 import { Card, cardVariants } from "@/components/ui/card";
+import { publicPath } from "@/lib/public-path";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -244,11 +245,12 @@ function VisualPairGrid({
           <h3 className="mt-card text-5 font-bold">{title}</h3>
           <p className="mt-compact text-7 text-muted-foreground">{body}</p>
           <Image
-            src={images[index]}
+            src={publicPath(images[index])}
             alt=""
             width={1448}
             height={1086}
             className="mt-card h-auto w-full rounded-[1.25rem]"
+            unoptimized
           />
         </Card>
       ))}
@@ -300,12 +302,13 @@ export default function ManagingMembershipsAtScaleOneOne() {
 
         <div className="mt-hero overflow-hidden rounded-[2rem] bg-surface-soft shadow-editorial">
           <Image
-            src="/hero.png"
+            src={publicPath("/hero.png")}
             alt=""
             width={1672}
             height={941}
             className="h-auto w-full"
             priority
+            unoptimized
           />
         </div>
       </section>
@@ -383,11 +386,12 @@ export default function ManagingMembershipsAtScaleOneOne() {
               </div>
               {"image" in area ? (
                 <Image
-                  src={area.image}
+                  src={publicPath(area.image)}
                   alt={area.imageAlt}
                   width={1586}
                   height={992}
                   className="mt-card h-auto w-full rounded-[1.25rem]"
+                  unoptimized
                 />
               ) : null}
               <div className="mt-card grid gap-compact lg:grid-cols-3">

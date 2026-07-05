@@ -1,5 +1,6 @@
 import { clientLogos } from "@/content/projects";
 import Image from "next/image";
+import { publicPath } from "@/lib/public-path";
 
 const logoClassByName: Record<string, string> = {
   "Partner logo": "w-[5.75rem]",
@@ -20,11 +21,12 @@ export function ClientStrip() {
           className="flex min-h-16 items-center justify-center"
         >
           <Image
-            src={client.src}
+            src={publicPath(client.src)}
             alt={client.name}
             width={220}
             height={96}
             className={`${logoClassByName[client.name]} h-auto max-h-16 object-contain`}
+            unoptimized
           />
         </div>
       ))}

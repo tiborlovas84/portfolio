@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { StatsStrip } from "@/components/sections/StatsStrip";
+import { publicPath } from "@/lib/public-path";
 
 export function AboutImpactSection() {
   return (
@@ -12,22 +13,24 @@ export function AboutImpactSection() {
             AI-generated output into scalable, production-ready systems.
           </p>
           <Image
-            src="/signature.svg"
+            src={publicPath("/signature.svg")}
             alt="Tibor Lovas signature"
             width={170}
             height={65}
             className="h-auto w-44"
+            unoptimized
           />
         </div>
         <div className="flex justify-center">
           <Image
-            src="/about-image.png"
+            src={publicPath("/about-image.png")}
             alt="Tibor Lovas portrait"
             width={1240}
             height={1208}
             sizes="(min-width: 1024px) 52vw, 100vw"
             className="h-auto w-full max-w-[38rem] rounded-[2rem]"
             priority
+            unoptimized
           />
         </div>
       </div>

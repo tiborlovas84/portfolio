@@ -7,6 +7,7 @@ import { CaseStudyIterationTabs } from "@/components/sections/CaseStudyIteration
 import { CaseStudyV11SectionNav } from "@/components/sections/CaseStudyV11SectionNav";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { publicPath } from "@/lib/public-path";
 import {
   challenge,
   challengeProblems,
@@ -180,12 +181,13 @@ export default function RoadsideAssistanceCaseStudy() {
           </div>
           <div className="rounded-[1.75rem] bg-[#eef4f8] p-content shadow-editorial">
             <Image
-              src="/webflow/images/AAA-Logo.svg"
+              src={publicPath("/webflow/images/AAA-Logo.svg")}
               alt="AAA"
               width={148}
               height={72}
               className="h-auto w-28"
               priority
+              unoptimized
             />
             <p className="mt-card text-5 font-semibold">
               Operational workflows for a roadside assistance membership platform.
@@ -194,12 +196,13 @@ export default function RoadsideAssistanceCaseStudy() {
         </div>
         <div className="mt-hero overflow-hidden rounded-[2rem] bg-[#f4f6f8] shadow-editorial">
           <Image
-            src="/webflow/images/Roadside-Assistance-cropped.png"
+            src={publicPath("/webflow/images/Roadside-Assistance-cropped.png")}
             alt="Roadside Assistance product interface mockups"
             width={1383}
             height={764}
             className="h-auto w-full"
             priority
+            unoptimized
           />
         </div>
       </section>
@@ -262,11 +265,12 @@ export default function RoadsideAssistanceCaseStudy() {
           </div>
           <div className="overflow-hidden rounded-[1.75rem] bg-[#eef4f8]">
             <Image
-              src="/webflow/images/Roadside-Assistance.png"
+              src={publicPath("/webflow/images/Roadside-Assistance.png")}
               alt="Roadside Assistance workflow interface mockups"
               width={1384}
               height={1282}
               className="h-auto w-full"
+              unoptimized
             />
           </div>
         </div>

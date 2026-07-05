@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { publicPath } from "@/lib/public-path";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -166,12 +167,13 @@ function ProjectLeadSpread({ project }: { project: ProjectGridItem }) {
         </div>
         <div className={`relative min-h-[30rem] overflow-hidden ${project.tone}`}>
           <Image
-            src={project.image}
+            src={publicPath(project.image)}
             alt={project.imageAlt}
             fill
             sizes="(max-width: 1024px) 92vw, 56vw"
             className="object-contain p-6 transition-transform duration-500 ease-out group-hover:scale-[1.04] md:p-12"
             priority
+            unoptimized
           />
         </div>
         <div className="border-t border-border p-card lg:col-span-2">
@@ -204,11 +206,12 @@ function ProjectMagazineSpread({
           className={`relative min-h-[22rem] overflow-hidden border-b border-border lg:col-span-2 lg:border-b-0 ${reversed ? "lg:order-last lg:border-l" : "lg:border-r"} ${project.tone}`}
         >
           <Image
-            src={project.image}
+            src={publicPath(project.image)}
             alt={project.imageAlt}
             fill
             sizes="(max-width: 1024px) 92vw, 54vw"
             className="object-contain p-6 transition-transform duration-500 ease-out group-hover:scale-[1.04] md:p-10"
+            unoptimized
           />
         </div>
         <div className="grid content-between gap-card p-card">
@@ -256,11 +259,12 @@ function ProjectMiniIndex({ projects }: { projects: ProjectGridItem[] }) {
             </div>
             <div className={`relative min-h-[16rem] overflow-hidden border-b border-border ${project.tone}`}>
               <Image
-                src={project.image}
+                src={publicPath(project.image)}
                 alt={project.imageAlt}
                 fill
                 sizes="(max-width: 768px) 92vw, 42vw"
                 className="object-contain p-6 transition-transform duration-500 ease-out group-hover:scale-[1.04] md:p-8"
+                unoptimized
               />
             </div>
             <div className="grid gap-content p-card">

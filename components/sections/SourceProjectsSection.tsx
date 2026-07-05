@@ -4,6 +4,7 @@ import { Fragment } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { publicPath } from "@/lib/public-path";
 import { cn } from "@/lib/utils";
 
 type SourceProject = {
@@ -176,11 +177,12 @@ function SourceProjectArticle({ project, index }: { project: SourceProject; inde
         <div className="grid max-w-xl justify-items-center gap-card">
           {project.logo ? (
             <Image
-              src={project.logo}
+              src={publicPath(project.logo)}
               alt={project.logoAlt ?? ""}
               width={192}
               height={96}
               className="h-auto max-h-24 w-fit max-w-48 object-contain"
+              unoptimized
             />
           ) : null}
           <div className="grid justify-items-center gap-compact">
@@ -216,7 +218,7 @@ function SourceProjectArticle({ project, index }: { project: SourceProject; inde
         )}
       >
         <Image
-          src={project.image}
+          src={publicPath(project.image)}
           alt={project.imageAlt}
           fill
           sizes={project.featured ? "(max-width: 1024px) 90vw, 52vw" : "(max-width: 1024px) 90vw, 44vw"}
@@ -224,6 +226,7 @@ function SourceProjectArticle({ project, index }: { project: SourceProject; inde
             "object-contain p-0 drop-shadow-[0_2rem_3rem_rgba(15,23,42,0.18)] transition-transform duration-500 ease-out",
             project.mediaClass,
           )}
+          unoptimized
         />
       </div>
     </article>

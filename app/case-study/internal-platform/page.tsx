@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CaseStudyIterationTabs } from "@/components/sections/CaseStudyIterationTabs";
 import { PageBackgroundTransition } from "@/components/sections/PageBackgroundTransition";
+import { publicPath } from "@/lib/public-path";
 import { ShimmerDotsBackground } from "../../../components/shimmer-dots-background";
 import {
   AreaCard,
@@ -9,7 +10,6 @@ import {
   Checklist,
   Pill,
   Section,
-  publicPath,
 } from "./components";
 import {
   areas,
