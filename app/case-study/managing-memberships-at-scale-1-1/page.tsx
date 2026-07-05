@@ -371,17 +371,17 @@ export default function ManagingMembershipsAtScaleOneOne() {
 
       <Section
         id="impact"
-        eyebrow="Impact at a glance"
-        title="The work turned a complex internal platform into safer workflows and reusable foundations."
+        eyebrow="Overview"
+        title="This was not just a UI refresh."
         soft
       >
-        <ImpactMetricsPanel />
-        <div id="overview" className="mt-hero grid max-w-4xl gap-content scroll-mt-24 text-6 text-muted-foreground">
-          <p className="editorial-kicker text-primary">Overview</p>
-          <h3 className="text-4 font-bold text-foreground">This was not just a UI refresh.</h3>
+        <div id="overview" className="grid max-w-4xl gap-content scroll-mt-24 text-6 text-muted-foreground">
           {overview.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
+        </div>
+        <div className="mt-hero">
+          <ImpactMetricsPanel />
         </div>
       </Section>
 
