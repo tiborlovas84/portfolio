@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 const footerItems = [
-  { href: "/#case-studies", label: "Projects" },
+  { href: "/#RoadsideAssistance", label: "Projects" },
   { href: "/#capabilities", label: "Wirefigma" },
   { href: "/#about", label: "About" },
   { href: "/#success-stories", label: "Success Stories" },
   { href: "/#process", label: "FAQ" },
-  { href: "https://www.linkedin.com/in/tiborlovas/", label: "Resume" },
+  { href: "/resume", label: "Resume" },
 ];
 
 export function SiteFooter() {

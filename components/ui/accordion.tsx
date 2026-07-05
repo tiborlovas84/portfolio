@@ -7,20 +7,26 @@ import { cn } from "@/lib/utils";
 export type AccordionItem = {
   title: string;
   content: ReactNode;
-  eyebrow?: string;
+  eyebrow?: ReactNode;
+  summary?: ReactNode;
+  showTitle?: boolean;
 };
 
-export function Accordion({
-  items,
-  defaultOpenIndex = 0,
-  showIndex = true,
-  className,
-}: {
+type AccordionProps = {
   items: AccordionItem[];
   defaultOpenIndex?: number;
   showIndex?: boolean;
   className?: string;
-}) {
+  itemClassName?: string;
+};
+
+export function GenomeAccordion({
+  items,
+  defaultOpenIndex = 0,
+  showIndex = true,
+  className,
+  itemClassName,
+}: AccordionProps) {
   const accordionId = useId();
   const [openIndex, setOpenIndex] = useState<number | null>(
     defaultOpenIndex >= 0 && defaultOpenIndex < items.length ? defaultOpenIndex : null,
@@ -34,42 +40,49 @@ export function Accordion({
         const triggerId = `${accordionId}-trigger-${index}`;
 
         return (
-          <div key={item.title} className="rounded-[2rem] bg-surface-soft">
+          <div key={item.title} className={cn("rounded-[2rem] bg-surface-soft", itemClassName)}>
             <button
               id={triggerId}
               type="button"
               aria-controls={panelId}
               aria-expanded={isOpen}
-              className="flex w-full cursor-pointer items-center justify-between gap-content p-content text-left md:p-card"
+              className={cn(
+                "flex w-full cursor-pointer items-center justify-between gap-content p-content text-left md:p-card",
+                item.summary && "grid grid-cols-[5rem_minmax(0,1fr)_3rem] gap-content",
+              )}
               onClick={() => setOpenIndex(isOpen ? null : index)}
             >
               <span
                 className={cn(
-                  "grid items-center gap-tight",
-                  showIndex && "md:grid-cols-[3rem_minmax(0,1fr)]",
+                  "grid min-w-0 items-center gap-tight",
+                  showIndex && !item.summary && "md:grid-cols-[3rem_minmax(0,1fr)]",
                 )}
               >
                 {showIndex ? (
-                  <span className="editorial-kicker">
+                  <span className="editorial-kicker grid gap-1">
                     {item.eyebrow ?? String(index + 1).padStart(2, "0")}
                   </span>
                 ) : null}
-                <span className="text-5 font-semibold leading-tight">{item.title}</span>
-              </span>
-              <span
-                aria-hidden="true"
-                className={cn(
-                  "relative grid size-10 shrink-0 place-items-center text-4 font-semibold leading-none transition-transform duration-200 ease-out",
-                  isOpen && "rotate-90",
+                {item.showTitle === false ? null : (
+                  <span className="text-5 font-semibold leading-tight">{item.title}</span>
                 )}
-              >
+              </span>
+              {item.summary ? <span className="min-w-0 flex-1">{item.summary}</span> : null}
+              <span className="grid w-12 shrink-0 place-items-center justify-self-center" aria-hidden="true">
                 <span
                   className={cn(
-                    "absolute h-[0.1em] w-[0.65em] rounded-pill bg-current opacity-100 transition-opacity duration-200 ease-out",
-                    isOpen && "opacity-0",
+                    "relative grid size-7 place-items-center text-6 font-semibold leading-none transition-transform duration-200 ease-out",
+                    isOpen && "rotate-90",
                   )}
-                />
-                <span className="absolute h-[0.1em] w-[0.65em] rotate-90 rounded-pill bg-current" />
+                >
+                  <span
+                    className={cn(
+                      "absolute h-[0.1em] w-[0.55em] rounded-pill bg-current opacity-100 transition-opacity duration-200 ease-out",
+                      isOpen && "opacity-0",
+                    )}
+                  />
+                  <span className="absolute h-[0.1em] w-[0.55em] rotate-90 rounded-pill bg-current" />
+                </span>
               </span>
             </button>
             <div
@@ -89,7 +102,12 @@ export function Accordion({
                     isOpen && "opacity-100",
                   )}
                 >
-                  <div className="grid gap-tight md:grid-cols-[3rem_minmax(0,1fr)]">
+                  <div
+                    className={cn(
+                      "grid gap-tight md:grid-cols-[3rem_minmax(0,1fr)]",
+                      item.summary && "md:grid-cols-[calc(5rem+theme(spacing.content))_minmax(0,1fr)] md:gap-0",
+                    )}
+                  >
                     {showIndex ? <div aria-hidden="true" /> : null}
                     <div
                       className={cn(

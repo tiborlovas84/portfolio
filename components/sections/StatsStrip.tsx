@@ -7,7 +7,7 @@ export function StatsStrip() {
         {homepageStats.map((stat) => (
           <div key={stat.label} className="grid justify-items-center gap-content text-center">
             <dt className="text-1 font-black">{stat.value}</dt>
-            <dd className="max-w-64 text-6 font-normal">{stat.label}</dd>
+            <dd className="w-full whitespace-pre-line text-6 font-normal">{stat.label}</dd>
           </div>
         ))}
       </dl>

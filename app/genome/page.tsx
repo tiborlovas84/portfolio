@@ -3,31 +3,30 @@ import Link from "next/link";
 
 import { BrandLogo } from "@/components/layout/BrandLogo";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { ClientStrip } from "@/components/sections/ClientStrip";
 import { CTASection } from "@/components/sections/CTASection";
-import { EditorialHero } from "@/components/sections/EditorialHero";
 import { FocusList } from "@/components/sections/FocusList";
+import { GenomeFoundationNav } from "@/components/sections/GenomeFoundationNav";
 import { GenomeSectionNav } from "@/components/sections/GenomeSectionNav";
 import { PageBackgroundTransition } from "@/components/sections/PageBackgroundTransition";
 import { ProjectCard } from "@/components/sections/ProjectCard";
-import { ProjectShowcase } from "@/components/sections/ProjectShowcase";
 import { QuoteBlock } from "@/components/sections/QuoteBlock";
 import { Section } from "@/components/sections/Section";
-import { StatsStrip } from "@/components/sections/StatsStrip";
-import { Accordion } from "@/components/ui/accordion";
+import { HomepageProjectCard } from "@/components/sections/SourceProjectsSection";
+import { GenomeAccordion } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Pill } from "@/components/ui/pill";
+import { Card } from "@/components/ui/card";
 import {
   genomeComponents,
+  genomeContainerTokens,
   genomeContentRules,
   genomeColorTokens,
   genomeFoundations,
   genomeIntro,
-  genomePatterns,
+  genomeMotionTokens,
   genomePrinciples,
   genomeProblems,
+  genomeRadiusTokens,
   genomeShadowTokens,
   genomeSpacingScale,
   genomeTypography,
@@ -39,29 +38,57 @@ const type = genomeTypography.classes;
 const sectionAnchorOffset = "scroll-mt-20";
 const softSurfaceCard = "rounded-[2rem] bg-surface-soft";
 const compactSoftSurfaceCard = "rounded-[1.5rem] bg-surface-soft";
-const largeComponentTitles = new Set([
+const foundationNavItems = genomeFoundations.map((foundation) => ({
+  href: `#foundation-${foundation.title.toLowerCase().replace(/\s+/g, "-")}`,
+  label: foundation.title,
+}));
+const wideComponentTitles = new Set([
   "Site Header",
+  "Page Navigation",
+  "Foundations Navbar",
   "Site Footer",
   "Section Wrapper",
   "Section Header",
-  "Editorial Hero",
-  "Partner Logo Strip",
-  "Stats Strip",
   "Project Card",
-  "Project Showcase",
+  "Homepage Project Card",
   "Quote Block",
   "Focus List",
   "CTA",
   "FAQ / Accordion",
 ]);
+const componentGroups = [
+  {
+    label: "Primitives",
+    titles: ["Button", "Card", "Badge", "FAQ / Accordion"],
+  },
+  {
+    label: "Navigation",
+    titles: ["Site Header", "Page Navigation", "Foundations Navbar", "Site Footer"],
+  },
+  {
+    label: "Editorial Sections",
+    titles: ["Section Wrapper", "Section Header", "Quote Block", "Focus List"],
+  },
+  {
+    label: "General Components",
+    titles: ["Project Card", "Homepage Project Card", "CTA"],
+  },
+];
 const genomeSectionNav = [
   { href: "#why", label: "Why" },
   { href: "#principles", label: "Principles" },
   { href: "#foundations", label: "Foundations" },
   { href: "#components", label: "Components" },
-  { href: "#patterns", label: "Patterns" },
   { href: "#content-rules", label: "Content rules" },
   { href: "#closing", label: "Closing" },
+];
+const siteHeaderNavSpecimenItems = [
+  { href: "/#RoadsideAssistance", label: "Projects" },
+  { href: "/genome", label: "Genome" },
+  { href: "/#about", label: "About" },
+  { href: "/#process", label: "Process & Collaboration" },
+  { href: "/resume", label: "Resume" },
+  { href: "https://www.linkedin.com/in/tiborlovas/", label: "Contact" },
 ];
 
 export const metadata: Metadata = {
@@ -121,7 +148,7 @@ function PrincipleGrid() {
       {genomePrinciples.map((principle, index) => (
         <article key={principle.title} className={`p-card md:p-loose ${softSurfaceCard}`}>
           <p className="editorial-kicker mb-card">{String(index + 1).padStart(2, "0")}</p>
-          <h3 className={type.cardTitle}>{principle.title}</h3>
+          <h3 className={type.leadTitle}>{principle.title}</h3>
           <p className={`mt-compact ${type.body}`}>{principle.description}</p>
         </article>
       ))}
@@ -131,25 +158,30 @@ function PrincipleGrid() {
 
 function FoundationSpecimens() {
   return (
-    <div className="space-y-content">
-      {genomeFoundations.map((foundation) => (
-        <article
-          key={foundation.title}
-          className={`grid gap-card p-card md:grid-cols-[0.24fr_0.76fr] md:p-loose ${softSurfaceCard}`}
-        >
-          <p className="editorial-kicker">{foundation.title}</p>
-          <div>
-            <h3 className={type.cardTitle}>{foundation.specimen}</h3>
-            <p className={`mt-compact max-w-3xl ${type.body}`}>
-              {foundation.detail}
-            </p>
-            {foundation.title === "Typography" ? <TypeScaleSpecimen /> : null}
-            {foundation.title === "Color" ? <ColorSpecimen /> : null}
-            {foundation.title === "Spacing" ? <SpacingSpecimen /> : null}
-            {foundation.title === "Shadow" ? <ShadowSpecimen /> : null}
-          </div>
-        </article>
-      ))}
+    <div className="relative md:grid md:grid-cols-[12rem_minmax(0,1fr)] md:gap-card">
+      <GenomeFoundationNav items={foundationNavItems} />
+      <div className="space-y-content">
+        {genomeFoundations.map((foundation) => (
+          <article
+            key={foundation.title}
+            id={`foundation-${foundation.title.toLowerCase().replace(/\s+/g, "-")}`}
+            className={`scroll-mt-32 p-card md:p-loose ${softSurfaceCard}`}
+          >
+            <div>
+              <p className="editorial-kicker mb-card md:hidden">{foundation.title}</p>
+              <h3 className={type.cardTitle}>{foundation.specimen}</h3>
+              <p className={`mt-compact max-w-3xl ${type.body}`}>{foundation.detail}</p>
+              {foundation.title === "Typography" ? <TypeScaleSpecimen /> : null}
+              {foundation.title === "Color" ? <ColorSpecimen /> : null}
+              {foundation.title === "Spacing" ? <SpacingSpecimen /> : null}
+              {foundation.title === "Shadow" ? <ShadowSpecimen /> : null}
+              {foundation.title === "Radius" ? <RadiusSpecimen /> : null}
+              {foundation.title === "Layout" ? <ContainerSpecimen /> : null}
+              {foundation.title === "Motion" ? <MotionSpecimen /> : null}
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   );
 }
@@ -160,7 +192,7 @@ function TypeScaleSpecimen() {
       {genomeTypeScale.map((specimen) => (
         <div
           key={specimen.label}
-          className="grid gap-tight px-compact py-micro md:grid-cols-[8rem_minmax(16rem,1fr)_minmax(14rem,0.42fr)] md:items-baseline"
+          className="grid gap-micro px-compact py-micro md:grid-cols-[7rem_minmax(16rem,1fr)_minmax(14rem,0.42fr)] md:items-baseline"
         >
           <p className="editorial-kicker">{specimen.label}</p>
           <p className={specimen.className}>{specimen.value}</p>
@@ -195,19 +227,138 @@ function ColorSpecimen() {
 }
 
 function SpacingSpecimen() {
+  const spacingBars = [
+    { pixels: "12px", width: "8.333%" },
+    { pixels: "16px", width: "11.111%" },
+    { pixels: "20px", width: "13.889%" },
+    { pixels: "24px", width: "16.667%" },
+    { pixels: "32px", width: "22.222%" },
+    { pixels: "40px", width: "27.778%" },
+    { pixels: "64px / 80px", width: "55.556%" },
+    { pixels: "80px -> 144px", width: "100%" },
+  ];
+
   return (
-    <div className="mt-loose grid gap-tight md:grid-cols-2">
-      {genomeSpacingScale.map((token) => (
-        <article key={token.name} className="rounded-[1.5rem] bg-background p-compact">
-          <p className="editorial-kicker mb-compact">{token.name}</p>
-          <div className="flex min-h-20 items-center rounded-[1rem] bg-primary-foreground p-tight">
-            <div className="h-8 w-full rounded-pill bg-surface-soft" aria-hidden="true" />
-          </div>
-          <p className={`mt-compact ${type.captionStrong}`}>{token.className}</p>
-          <p className={`mt-micro ${type.captionMuted}`}>{token.value}</p>
-          <p className={`mt-tight ${type.captionMuted}`}>{token.usage}</p>
-        </article>
-      ))}
+    <div className="mt-loose rounded-[1.5rem] bg-background p-compact md:p-card">
+      <div className="grid gap-tight">
+        {genomeSpacingScale.map((token, index) => {
+          const bar = spacingBars[index] ?? spacingBars[0];
+          const isSectionRhythm = token.name === "Section rhythm";
+
+          if (isSectionRhythm) {
+            return (
+              <article key={token.name} className="rounded-[1rem] bg-surface-soft p-compact">
+                <p className={type.captionStrong}>{token.name}</p>
+                <p className="mt-tight font-mono text-xs text-muted-foreground">
+                  {token.value} ({bar.pixels})
+                </p>
+                <p className={`mt-tight ${type.captionMuted}`}>{token.className}</p>
+                <p className={`mt-tight max-w-2xl ${type.captionMuted}`}>{token.usage}</p>
+              </article>
+            );
+          }
+
+          return (
+            <article
+              key={token.name}
+              className="grid gap-tight rounded-[1rem] bg-surface-soft p-tight md:grid-cols-[7rem_minmax(12rem,1fr)_8rem] md:items-center"
+            >
+              <div>
+                <p className={type.captionStrong}>{token.name}</p>
+                <p className="font-mono text-xs text-muted-foreground">{token.className}</p>
+              </div>
+              <div className="px-tight">
+                <div className="flex min-h-10 items-center rounded-pill bg-background p-3">
+                  <div
+                    className="h-4 min-w-3 rounded-pill bg-primary"
+                    style={{ width: bar.width }}
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+              <div className="font-mono text-xs font-semibold text-muted-foreground md:text-right">
+                <p>{token.value}</p>
+                <p className="font-medium">{bar.pixels}</p>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function ContainerSpecimen() {
+  const screenScale = [
+    {
+      label: "Default",
+      screen: "< 640px",
+      gutter: "1.25rem",
+      pixels: "20px",
+      width: "50%",
+    },
+    {
+      label: "Small",
+      screen: "sm / 640px+",
+      gutter: "1.5rem",
+      pixels: "24px",
+      width: "60%",
+    },
+    {
+      label: "Large",
+      screen: "lg / 1024px+",
+      gutter: "2rem",
+      pixels: "32px",
+      width: "80%",
+    },
+    {
+      label: "Wide",
+      screen: "xl / 1280px+",
+      gutter: "2.5rem",
+      pixels: "40px",
+      width: "100%",
+    },
+  ];
+
+  return (
+    <div className="mt-loose grid gap-compact rounded-[1.5rem] bg-background p-compact md:p-card">
+      <div className="grid gap-tight">
+        {screenScale.map((screen) => (
+          <article
+            key={screen.label}
+            className="grid gap-tight rounded-[1rem] bg-surface-soft p-tight md:grid-cols-[7rem_minmax(12rem,1fr)_8rem] md:items-center"
+          >
+            <div>
+              <p className={type.captionStrong}>{screen.label}</p>
+              <p className="font-mono text-xs text-muted-foreground">{screen.screen}</p>
+            </div>
+            <div className="px-tight">
+              <div className="flex min-h-10 items-center rounded-pill bg-background p-3">
+                <div
+                  className="h-4 min-w-3 rounded-pill bg-primary"
+                  style={{ width: screen.width }}
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <div className="font-mono text-xs font-semibold text-muted-foreground md:text-right">
+              <p>{screen.gutter}</p>
+              <p className="font-medium">{screen.pixels}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="grid gap-tight md:grid-cols-2">
+        {genomeContainerTokens.map((token) => (
+          <article key={token.name} className="rounded-[1rem] bg-surface-soft p-compact">
+            <p className={type.captionStrong}>{token.name}</p>
+            <p className="mt-micro font-mono text-xs text-muted-foreground">{token.value}</p>
+            <p className={`mt-tight ${type.captionMuted}`}>{token.className}</p>
+            <p className={`mt-tight ${type.captionMuted}`}>{token.usage}</p>
+          </article>
+        ))}
+      </div>
     </div>
   );
 }
@@ -218,7 +369,7 @@ function ShadowSpecimen() {
       {genomeShadowTokens.map((token) => (
         <article key={token.name} className="rounded-[1.5rem] bg-background p-compact">
           <div className="rounded-[1.25rem] bg-background p-card shadow-editorial" aria-hidden="true">
-            <div className="h-16 rounded-[1rem] bg-surface-soft" />
+            <div className="h-16 rounded-[1rem] bg-background" />
           </div>
           <p className={`mt-compact ${type.captionStrong}`}>{token.name}</p>
           <p className={`mt-micro ${type.captionMuted}`}>{token.className}</p>
@@ -232,34 +383,46 @@ function ShadowSpecimen() {
   );
 }
 
-function GenomeStatusFlag({
-  children,
-  variant = "soft",
-}: {
-  children: React.ReactNode;
-  variant?: "soft" | "solid";
-}) {
-  const variantClass =
-    variant === "solid" ? "bg-accent text-accent-foreground" : "bg-surface-soft text-primary";
-
+function RadiusSpecimen() {
   return (
-    <span className={`rounded-pill px-3 py-1 text-9 font-semibold uppercase shadow-editorial ${variantClass}`}>
-      {children}
-    </span>
+    <div className="mt-loose rounded-[1.5rem] bg-background p-compact md:p-card">
+      <div className="grid gap-tight sm:grid-cols-2 lg:grid-cols-3">
+        {genomeRadiusTokens.map((token) => (
+          <article key={token.name} className="rounded-[1rem] bg-surface-soft p-compact">
+            <div className={`${token.sizeClass} bg-background`} aria-hidden="true" />
+            <p className={`mt-compact ${type.captionStrong}`}>{token.name}</p>
+            <p className="mt-micro font-mono text-xs text-muted-foreground">{token.value}</p>
+            <p className={`mt-tight ${type.captionMuted}`}>{token.className}</p>
+            <p className={`mt-tight ${type.captionMuted}`}>{token.usage}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MotionSpecimen() {
+  return (
+    <div className="mt-loose rounded-[1.5rem] bg-background p-compact md:p-card">
+      <div className="grid gap-tight md:grid-cols-2">
+        {genomeMotionTokens.map((token) => (
+          <article key={token.name} className="rounded-[1rem] bg-surface-soft p-compact">
+            <div className="flex min-h-10 items-center rounded-pill bg-background p-3" aria-hidden="true">
+              <div className="h-4 w-16 rounded-pill bg-primary" />
+            </div>
+            <p className={`mt-compact ${type.captionStrong}`}>{token.name}</p>
+            <p className="mt-micro font-mono text-xs text-muted-foreground">{token.value}</p>
+            <p className={`mt-tight ${type.captionMuted}`}>{token.className}</p>
+            <p className={`mt-tight ${type.captionMuted}`}>{token.usage}</p>
+          </article>
+        ))}
+      </div>
+    </div>
   );
 }
 
 function ComponentGallery() {
-  const sortedComponents = [...genomeComponents].sort((a, b) => {
-    if (a.status === b.status) return 0;
-    return a.status === "unused" ? 1 : -1;
-  });
-  const smallComponents = sortedComponents.filter(
-    (component) => !largeComponentTitles.has(component.title),
-  );
-  const largeComponents = sortedComponents.filter((component) =>
-    largeComponentTitles.has(component.title),
-  );
+  const componentsByTitle = new Map(genomeComponents.map((component) => [component.title, component]));
 
   const renderComponentCard = (component: (typeof genomeComponents)[number], isLarge = false) => (
     <Card
@@ -270,13 +433,12 @@ function ComponentGallery() {
       }`}
     >
       <div className="min-w-0">
-        <div className="mb-card flex items-center justify-between gap-micro">
-          <p className="editorial-kicker">Component</p>
-          {component.status === "unused" ? (
-            <GenomeStatusFlag variant="solid">{component.status}</GenomeStatusFlag>
-          ) : null}
-        </div>
-        <h3 className={type.cardTitle}>{component.title}</h3>
+        {component.status === "unused" ? (
+          <div className="mb-card flex items-center justify-end gap-micro">
+            <Badge>{component.status}</Badge>
+          </div>
+        ) : null}
+        <h3 className={type.leadTitle}>{component.title}</h3>
         <p className={`mt-compact ${type.body}`}>{component.description}</p>
       </div>
       <ComponentSpecimen title={component.title} />
@@ -285,59 +447,136 @@ function ComponentGallery() {
 
   return (
     <div className="grid gap-loose">
-      <div>
-        <p className="editorial-kicker mb-compact">Small components</p>
-        <div className="grid gap-compact lg:grid-cols-2">
-          {smallComponents.map((component) => renderComponentCard(component))}
-        </div>
-      </div>
-      <div>
-        <p className="editorial-kicker mb-compact">Large components</p>
-        <div className="grid gap-compact lg:grid-cols-2">
-          {largeComponents.map((component) => renderComponentCard(component, true))}
-        </div>
-      </div>
+      {componentGroups.map((group) => {
+        const groupComponents = group.titles
+          .map((title) => componentsByTitle.get(title))
+          .filter((component): component is (typeof genomeComponents)[number] => Boolean(component));
+
+        if (!groupComponents.length) return null;
+
+        return (
+          <div key={group.label}>
+            <p className="editorial-kicker mb-compact">{group.label}</p>
+            <div className="grid gap-compact lg:grid-cols-2">
+              {groupComponents.map((component) =>
+                renderComponentCard(component, wideComponentTitles.has(component.title)),
+              )}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
 
 function ComponentSpecimen({ title }: { title: string }) {
   if (title === "Site Header") {
-    const siteNavItems = ["Projects", "Wirefigma", "About", "Process", "Genome", "Contact"];
-
     return (
       <div className="mt-loose grid gap-micro">
         <p className="editorial-kicker">Variant / Non-sticky</p>
-        <div className="rounded-[1.5rem] bg-background p-1">
-          <div className="flex min-h-20 items-center justify-between rounded-[2rem] px-micro">
-            <BrandLogo className="h-10 w-auto shrink-0" />
-            <div className="hidden items-center text-[0.7rem] font-semibold uppercase text-foreground xl:flex">
-              {siteNavItems.map((item) => (
-                <span
-                  key={item}
-                  className={`rounded-pill px-4 py-4 ${item === "Genome" ? "bg-primary text-primary-foreground" : ""}`}
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-            <div className="flex items-center gap-1 xl:hidden">
-              {siteNavItems.slice(0, 4).map((item) => (
-                <span
-                  key={item}
-                  className={`h-2 rounded-pill ${item === "Genome" ? "w-8 bg-primary" : "w-5 bg-surface-soft"}`}
-                />
-              ))}
-            </div>
+        <div className="overflow-x-auto rounded-[1.5rem] bg-background p-1">
+          <div className="flex min-w-max items-center justify-between gap-card rounded-[2rem] px-micro">
+            <Link
+              href="/"
+              className="inline-flex shrink-0 rounded-pill py-3 pl-1 text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-surface-soft"
+              aria-label="Tibor Lovas home"
+            >
+              <BrandLogo className="h-12 w-auto" />
+            </Link>
+            <nav
+              className="flex items-center text-9 font-semibold uppercase text-foreground"
+              aria-label="Portfolio navigation specimen"
+            >
+              {siteHeaderNavSpecimenItems.map((item) => {
+                const isActive = item.label === "Genome";
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`shrink-0 rounded-pill px-5 py-5 text-center transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-surface-soft ${
+                      isActive
+                        ? "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus-visible:bg-primary focus-visible:text-primary-foreground"
+                        : "hover:bg-surface-soft hover:text-primary focus-visible:bg-surface-soft focus-visible:text-primary"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
         </div>
       </div>
     );
   }
 
+  if (title === "Page Navigation") {
+    return (
+      <div className="mt-loose">
+        <div className="overflow-x-auto rounded-[1.5rem] bg-background p-1">
+          <nav
+            className="sticky top-0 flex min-w-max items-center rounded-[2rem] p-1 text-9 font-semibold uppercase text-foreground"
+            aria-label="Sticky page navigation specimen"
+          >
+            {genomeSectionNav.map((item) => {
+              const isActive = item.label === "Components";
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`shrink-0 rounded-pill px-5 py-4 transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-surface-soft ${
+                    isActive
+                      ? "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus-visible:bg-primary focus-visible:text-primary-foreground"
+                      : "hover:bg-surface-soft hover:text-primary focus-visible:bg-surface-soft focus-visible:text-primary"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      </div>
+    );
+  }
+
+  if (title === "Foundations Navbar") {
+    return (
+      <div className="mt-loose rounded-[1.5rem] bg-background p-compact">
+        <nav
+          className="flex max-w-sm flex-col items-start gap-micro text-9 font-semibold uppercase text-foreground"
+          aria-label="Foundation sections specimen"
+        >
+          {foundationNavItems.map((item) => {
+            const isActive = item.label === "Layout";
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={isActive ? "true" : undefined}
+                className={`inline-flex min-h-16 items-center justify-start rounded-pill px-content py-compact text-left transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background ${
+                  isActive
+                    ? "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus-visible:bg-primary focus-visible:text-primary-foreground"
+                    : "hover:bg-surface-soft hover:text-primary focus-visible:bg-surface-soft focus-visible:text-primary"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
+    );
+  }
+
   if (title === "Site Footer") {
     return (
-      <div className="mt-loose overflow-hidden rounded-[1.5rem] bg-background shadow-editorial">
+      <div className="mt-loose overflow-hidden rounded-[1.5rem] bg-background">
         <SiteFooter />
       </div>
     );
@@ -345,7 +584,7 @@ function ComponentSpecimen({ title }: { title: string }) {
 
   if (title === "Section Wrapper") {
     return (
-      <div className="mt-loose overflow-hidden rounded-[1.5rem] bg-background shadow-editorial">
+      <div className="mt-loose overflow-hidden rounded-[1.5rem] bg-background">
         <Section
           eyebrow="Section"
           title="Reusable page rhythm"
@@ -365,7 +604,7 @@ function ComponentSpecimen({ title }: { title: string }) {
         label: "Large action",
         size: "xl" as const,
         href: "https://www.linkedin.com/in/tiborlovas/",
-        text: "Start a conversation",
+        text: "Let's Connect",
       },
       {
         label: "Small action",
@@ -389,69 +628,48 @@ function ComponentSpecimen({ title }: { title: string }) {
     );
   }
 
-  if (title === "Pill") {
+  if (title === "Card") {
+    const cardSpecimens = [
+      {
+        label: "Default card",
+        title: "Contained editorial module",
+        description: "Cards frame repeated portfolio content without adding visible borders.",
+        variant: "default" as const,
+      },
+      {
+        label: "Background card",
+        title: "Surface without elevation",
+        description: "Background cards keep the contained shape without adding a shadow.",
+        variant: "background" as const,
+      },
+    ];
+
     return (
-      <div className="mt-loose flex flex-wrap gap-micro">
-        {["Research", "Artificial Intelligence", "Information Architecture"].map((label) => (
-          <Pill key={label}>{label}</Pill>
+      <div className="mt-loose grid gap-tight">
+        {cardSpecimens.map((specimen) => (
+          <Card key={specimen.label} variant={specimen.variant} className="p-card">
+            <p className="editorial-kicker mb-compact">{specimen.label}</p>
+            <h4 className={type.leadTitle}>{specimen.title}</h4>
+            <p className={`mt-compact ${type.body}`}>{specimen.description}</p>
+          </Card>
         ))}
       </div>
-    );
-  }
-
-  if (title === "Card") {
-    return (
-      <Card className="mt-loose p-card">
-        <p className="editorial-kicker mb-compact">Default card</p>
-        <h4 className={type.leadTitle}>Contained editorial module</h4>
-        <p className={`mt-compact ${type.body}`}>
-          Cards frame repeated portfolio content without adding visible borders.
-        </p>
-      </Card>
-    );
-  }
-
-  if (title === "Card Content") {
-    return (
-      <Card className="mt-loose overflow-hidden">
-        <CardContent className="p-card">
-          <p className="editorial-kicker mb-compact">Card content</p>
-          <p className={type.bodyLarge}>Controlled padding inside a reusable card shell.</p>
-        </CardContent>
-      </Card>
     );
   }
 
   if (title === "Badge") {
-    return (
-      <div className="mt-loose flex flex-wrap gap-micro">
-        {["Product", "System", "Delivery"].map((label) => (
-          <Badge key={label}>{label}</Badge>
-        ))}
-      </div>
-    );
-  }
-
-  if (title === "Stats Strip") {
-    return (
-      <div className="mt-loose overflow-hidden rounded-[1.5rem] bg-surface-soft py-compact">
-        <StatsStrip />
-      </div>
-    );
-  }
-
-  if (title === "Genome Status Flag") {
-    const statusFlagSpecimens = [
-      { label: "Soft", variant: "soft" as const },
-      { label: "Solid", variant: "solid" as const },
+    const badgeSpecimens = [
+      { label: "Default", variant: "default" as const, value: "Product" },
+      { label: "Secondary", variant: "secondary" as const, value: "System" },
+      { label: "Large", variant: "large" as const, value: "Research" },
     ];
 
     return (
-      <div className="mt-loose flex flex-wrap gap-micro">
-        {statusFlagSpecimens.map((specimen) => (
+      <div className="mt-loose flex flex-wrap items-start gap-content">
+        {badgeSpecimens.map((specimen) => (
           <div key={specimen.variant} className="grid gap-micro">
             <p className="editorial-kicker">{specimen.label}</p>
-            <GenomeStatusFlag variant={specimen.variant}>unused</GenomeStatusFlag>
+            <Badge variant={specimen.variant}>{specimen.value}</Badge>
           </div>
         ))}
       </div>
@@ -461,7 +679,7 @@ function ComponentSpecimen({ title }: { title: string }) {
   if (title === "Section Header") {
     return (
       <Section
-        className="mt-loose rounded-[1.5rem] bg-background shadow-editorial"
+        className="mt-loose rounded-[1.5rem] bg-background"
         eyebrow="Components"
         title="Selected components used across the portfolio."
         intro="The header orients the reader before each grouped system section."
@@ -469,31 +687,23 @@ function ComponentSpecimen({ title }: { title: string }) {
     );
   }
 
-  if (title === "Editorial Hero") {
-    return (
-      <div className="mt-loose max-h-[32rem] overflow-hidden rounded-[1.5rem] bg-background shadow-editorial">
-        <EditorialHero />
-      </div>
-    );
-  }
-
   if (title === "FAQ / Accordion") {
+    const accordionItems = [
+      {
+        title: "How does Genome keep case studies consistent?",
+        content: (
+          <p>
+            It gives every story a shared structure while leaving room for project-specific
+            evidence.
+          </p>
+        ),
+      },
+    ];
+
     return (
-      <Accordion
-        className="mt-loose"
-        showIndex={false}
-        items={[
-          {
-            title: "How does Genome keep case studies consistent?",
-            content: (
-              <p>
-                It gives every story a shared structure while leaving room for project-specific
-                evidence.
-              </p>
-            ),
-          },
-        ]}
-      />
+      <div className="mt-loose">
+        <GenomeAccordion showIndex={false} items={accordionItems} />
+      </div>
     );
   }
 
@@ -505,33 +715,25 @@ function ComponentSpecimen({ title }: { title: string }) {
     );
   }
 
-  if (title === "Project Showcase") {
+  if (title === "Homepage Project Card") {
     return (
-      <div className="mt-loose max-h-[42rem] overflow-hidden rounded-[1.5rem]">
-        <ProjectShowcase projects={featuredProjects.slice(0, 2)} />
+      <div className="mt-loose">
+        <HomepageProjectCard />
       </div>
     );
   }
 
   if (title === "CTA") {
     return (
-      <div className="mt-loose overflow-hidden rounded-[1.5rem] bg-background shadow-editorial">
+      <div className="mt-loose overflow-hidden rounded-[1.5rem] bg-background">
         <CTASection />
-      </div>
-    );
-  }
-
-  if (title === "Partner Logo Strip") {
-    return (
-      <div className="mt-loose rounded-[1.5rem] bg-background p-compact shadow-editorial">
-        <ClientStrip />
       </div>
     );
   }
 
   if (title === "Quote Block") {
     return (
-      <div className="mt-loose overflow-hidden rounded-[1.5rem] bg-background shadow-editorial">
+      <div className="mt-loose overflow-hidden rounded-[1.5rem] bg-background">
         <QuoteBlock
           name="Carlos J. Gómez"
           title="VP, Product Design at Sotheby’s"
@@ -544,7 +746,7 @@ function ComponentSpecimen({ title }: { title: string }) {
 
   if (title === "Focus List") {
     return (
-      <div className="mt-loose rounded-[1.5rem] bg-background p-compact shadow-editorial">
+      <div className="mt-loose rounded-[1.5rem] bg-background p-compact">
         <FocusList />
       </div>
     );
@@ -553,23 +755,6 @@ function ComponentSpecimen({ title }: { title: string }) {
   return (
     <div className="mt-loose rounded-[1.5rem] bg-surface-soft p-compact">
       <p className={type.captionStrong}>Portfolio-ready example for {title.toLowerCase()}.</p>
-    </div>
-  );
-}
-
-function PatternList() {
-  return (
-    <div className="grid gap-tight">
-      {genomePatterns.map((pattern, index) => (
-        <article
-          key={pattern.title}
-          className={`grid gap-content p-content md:grid-cols-[0.14fr_0.3fr_0.56fr] ${compactSoftSurfaceCard}`}
-        >
-          <p className="editorial-kicker">{String(index + 1).padStart(2, "0")}</p>
-          <h3 className={type.leadTitle}>{pattern.title}</h3>
-          <p className={type.body}>{pattern.description}</p>
-        </article>
-      ))}
     </div>
   );
 }
@@ -599,9 +784,6 @@ export default function GenomePage() {
           <p className={`mt-loose max-w-4xl text-5 ${genomeTypography.weights.body} text-muted-foreground`}>
             {genomeIntro.subtitle}
           </p>
-          <p className={`mt-card max-w-3xl ${type.sectionIntro}`}>
-            {genomeIntro.intro}
-          </p>
         </div>
       </section>
 
@@ -611,12 +793,12 @@ export default function GenomePage() {
         id="why"
         eyebrow="Why Genome exists"
         title="A portfolio system for work that cannot be reduced to screenshots."
-        intro="Genome gives the site a stable editorial structure so every page can explain product judgment, complexity, and systems work with the same level of care."
+        intro={`Genome gives the site a stable editorial structure so every page can explain product judgment, complexity, and systems work with the same level of care. ${genomeIntro.intro}`}
       >
         <EditorialList items={genomeProblems} />
       </GenomeSection>
 
-      <GenomeSection id="principles" eyebrow="System principles" title="Four rules shape every page and pattern.">
+      <GenomeSection id="principles" eyebrow="System principles" title="Four rules shape every page.">
         <PrincipleGrid />
       </GenomeSection>
 
@@ -639,15 +821,6 @@ export default function GenomePage() {
       </GenomeSection>
 
       <GenomeSection
-        id="patterns"
-        eyebrow="Patterns"
-        title="Reusable page patterns turn complex product work into a consistent narrative."
-        intro="Patterns help each project move from context to complexity, then from product decisions to impact and reflection."
-      >
-        <PatternList />
-      </GenomeSection>
-
-      <GenomeSection
         id="content-rules"
         eyebrow="Content rules"
         title="Editorial rules keep the system honest."
@@ -664,12 +837,9 @@ export default function GenomePage() {
           </h2>
           <div>
             <p className={type.body}>
-              The system is intentionally small: strong foundations, useful components, repeatable
-              patterns, and clear content rules.
+              The system is intentionally small: strong foundations, useful components, and clear
+              content rules.
             </p>
-            <Button asChild className="mt-card">
-              <Link href="/">Return to portfolio</Link>
-            </Button>
           </div>
         </div>
       </section>

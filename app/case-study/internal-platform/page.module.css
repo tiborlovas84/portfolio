@@ -12,7 +12,7 @@
 
   position: relative;
   isolation: isolate;
-  background-color: var(--color--white);
+  background-color: transparent;
   color: var(--color--dark);
 }
 
@@ -198,56 +198,6 @@
 .metaCard strong {
   font-size: 18px;
   line-height: 1.45;
-}
-
-.anchorNav {
-  display: flex;
-  position: sticky;
-  z-index: 5;
-  top: 0;
-  overflow-x: auto;
-  padding-top: 0;
-  padding-bottom: 0;
-  background: var(--color--transparent);
-}
-
-.anchorNav .container {
-  display: flex;
-  justify-content: flex-start;
-  overflow: scroll;
-}
-
-.anchorMenu {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--space--s1);
-  border-radius: var(--radius--r2);
-  background-color: var(--color--light);
-  backdrop-filter: blur(5px);
-}
-
-.anchorNav a {
-  border-radius: var(--radius--r3);
-  background-color: var(--color--transparent);
-  color: var(--color--dark);
-  padding: 20px;
-  font-size: var(--text--t0);
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all .2s ease-out;
-}
-
-.anchorNav a:hover {
-  background-color: var(--color--light);
-  color: var(--color--brand);
-}
-
-.anchorNav a[aria-current="location"] {
-  background-color: var(--color--brand);
-  color: var(--color--white);
 }
 
 .section {
@@ -759,11 +709,6 @@
   font-size: 20px;
 }
 
-.contactCta:global(.section-cta) {
-  padding-top: 112px;
-  padding-bottom: 112px;
-}
-
 @media screen and (max-width: 991px) {
   .hero {
     padding: var(--space--s7) 0 var(--space--s5);
@@ -820,11 +765,6 @@
 
   .section {
     padding: 56px var(--space--s1);
-  }
-
-  .contactCta:global(.section-cta) {
-    padding-top: 80px;
-    padding-bottom: 80px;
   }
 
   .section > .container,

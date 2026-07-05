@@ -7,9 +7,9 @@ import type { ProjectSummary } from "@/content/projects";
 
 export function ProjectCard({ project }: { project: ProjectSummary }) {
   return (
-    <Card className="group flex h-full overflow-hidden rounded-[2rem] transition-colors hover:bg-editorial-mist">
+    <Card className="group flex h-full overflow-hidden rounded-[2rem] transition-colors hover:bg-surface-soft">
       <CardContent className="flex h-full w-full flex-col p-0">
-        <div className="flex min-h-72 flex-1 flex-col justify-between bg-editorial-mist p-8 md:p-10">
+        <div className="flex min-h-72 flex-1 flex-col justify-between bg-surface-soft p-8 md:p-10">
           <div className="flex items-start justify-between gap-6">
             <p className="editorial-kicker max-w-[14rem]">{project.eyebrow}</p>
             <ArrowUpRight
@@ -50,7 +50,7 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
         </div>
         </div>
         <Link
-          href={`/case-study/${project.slug}`}
+          href={project.href ?? `/case-study/${project.slug}`}
           className="absolute inset-0"
           aria-label={`Read ${project.title}`}
         />

@@ -78,12 +78,6 @@ const config: Config = {
           border: oklch("--sidebar-border"),
           ring: oklch("--sidebar-ring"),
         },
-        editorial: {
-          ink: oklch("--editorial-ink"),
-          quiet: oklch("--editorial-quiet"),
-          line: oklch("--editorial-line"),
-          mist: oklch("--editorial-mist"),
-        },
       },
       borderRadius: {
         lg: "var(--radius)",

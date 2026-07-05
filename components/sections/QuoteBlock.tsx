@@ -7,7 +7,7 @@ type QuoteBlockProps = {
 
 export function QuoteBlock({ quote, name, title, signals = [] }: QuoteBlockProps) {
   return (
-    <figure className="grid min-h-[34rem] gap-card rounded-[2rem] bg-editorial-mist p-card md:p-hero">
+    <figure className="grid min-h-[34rem] gap-card rounded-[2rem] bg-surface-soft p-card md:p-hero">
       <span
         className="mb-content block size-12 overflow-hidden font-accent text-2 font-bold leading-none"
         aria-hidden="true"

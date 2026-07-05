@@ -1,12 +1,12 @@
 import { focusAreas } from "@/content/projects";
-import { Pill } from "@/components/ui/pill";
+import { Badge } from "@/components/ui/badge";
 
 export function FocusList() {
   return (
     <ul className="flex flex-wrap justify-center gap-3">
       {focusAreas.map((area) => (
         <li key={area}>
-          <Pill>{area}</Pill>
+          <Badge variant="large">{area}</Badge>
         </li>
       ))}
     </ul>

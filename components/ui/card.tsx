@@ -8,6 +8,7 @@ const cardVariants = cva("relative text-card-foreground", {
     variant: {
       default: "rounded-[1.5rem] bg-card shadow-editorial",
       component: "rounded-[2rem] bg-background shadow-editorial",
+      background: "rounded-[1.5rem] bg-surface-soft",
     },
   },
   defaultVariants: {

@@ -27,6 +27,11 @@ export const metadata: Metadata = {
   },
   description:
     "Senior product designer focused on design systems, complex product workflows, and AI-assisted product design.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "Tibor Lovas — Senior Product Designer",
     description:

@@ -3,7 +3,7 @@ export const genomeIntro = {
   subtitle:
     "A reusable editorial design system for turning product work into clear, structured, portfolio-ready stories.",
   intro:
-    "Genome controls the foundations, components, patterns, and content rules behind tiborlovas.com. It keeps product design work, case studies, systems thinking, and AI-assisted product practice coherent across the site.",
+    "Genome controls the foundations, components, and content rules behind tiborlovas.com. It keeps product design work, case studies, systems thinking, and AI-assisted product practice coherent across the site.",
 };
 
 export const genomeTypography = {
@@ -16,7 +16,7 @@ export const genomeTypography = {
   classes: {
     display: "text-1 font-bold",
     heroSupport: "text-4 font-medium",
-    sectionTitle: "text-3 font-semibold",
+    sectionTitle: "text-3 font-semibold tracking-[-0.015em]",
     sectionIntro: "text-6 font-medium text-muted-foreground",
     cardTitle: "text-4 font-semibold",
     leadTitle: "text-5 font-semibold",
@@ -37,7 +37,7 @@ export const genomeTypeScale = [
   },
   {
     label: "Text 2",
-    className: "text-2 font-bold",
+    className: "text-2 font-bold tracking-[-0.015em]",
     value: "Portfolio",
     usage: "Large section openers and page-level narrative statements.",
   },
@@ -167,11 +167,83 @@ export const genomeSpacingScale = [
     value: "clamp(5rem, 10vw, 9rem)",
     usage: "Major vertical rhythm between homepage, Genome, and case-study sections.",
   },
+];
+
+export const genomeRadiusTokens = [
   {
-    name: "Container gutter",
+    name: "Small",
+    value: "calc(var(--radius) - 12px)",
+    className: "rounded-sm",
+    usage: "Compact controls, tight metadata chips, and small contained UI.",
+    sizeClass: "h-16 rounded-sm",
+  },
+  {
+    name: "Medium",
+    value: "calc(var(--radius) - 8px)",
+    className: "rounded-md",
+    usage: "Subtle corners for dense interface details where shape should stay quiet.",
+    sizeClass: "h-20 rounded-md",
+  },
+  {
+    name: "Large",
+    value: "var(--radius)",
+    className: "rounded-lg",
+    usage: "Default token radius inherited from the shared shadcn foundation.",
+    sizeClass: "h-24 rounded-lg",
+  },
+  {
+    name: "Card",
+    value: "1.5rem",
+    className: "rounded-[1.5rem]",
+    usage: "Contained modules, specimen boxes, and reusable system cards.",
+    sizeClass: "h-28 rounded-[1.5rem]",
+  },
+  {
+    name: "Section",
+    value: "2rem",
+    className: "rounded-[2rem]",
+    usage: "Large editorial surfaces and primary portfolio section modules.",
+    sizeClass: "h-32 rounded-[2rem]",
+  },
+  {
+    name: "Pill",
+    value: "999px",
+    className: "rounded-pill",
+    usage: "Navigation states, action buttons, badges, and capability labels.",
+    sizeClass: "h-16 rounded-pill",
+  },
+];
+
+export const genomeContainerTokens = [
+  {
+    name: "Container max",
     className: "container",
-    value: "1.25rem -> 2.5rem",
-    usage: "Responsive page gutters for the main editorial reading frame.",
+    value: "1280px",
+    usage: "Maximum width for the main editorial reading frame.",
+  },
+  {
+    name: "Gutter / default",
+    className: "container",
+    value: "1.25rem",
+    usage: "Base page gutter before responsive breakpoints increase the canvas margin.",
+  },
+  {
+    name: "Gutter / sm",
+    className: "sm:container",
+    value: "1.5rem",
+    usage: "Small-screen page gutter.",
+  },
+  {
+    name: "Gutter / lg",
+    className: "lg:container",
+    value: "2rem",
+    usage: "Large-screen page gutter.",
+  },
+  {
+    name: "Gutter / xl",
+    className: "xl:container",
+    value: "2.5rem",
+    usage: "Wide-screen page gutter for the broad editorial canvas.",
   },
 ];
 
@@ -184,6 +256,39 @@ export const genomeShadowTokens = [
       "0 20px 60px -44px color-mix(in oklch, oklch(var(--foreground)) 35%, transparent)",
     usage:
       "Default elevation for white cards, strips, chips, and grouped modules. Do not combine shadows with soft background surfaces.",
+  },
+];
+
+export const genomeMotionTokens = [
+  {
+    name: "Micro fade",
+    className: "duration-150 ease-out",
+    value: "150ms",
+    usage: "Tiny opacity shifts for dots, icons, and supporting affordances.",
+  },
+  {
+    name: "Interactive state",
+    className: "duration-200 ease-out",
+    value: "200ms",
+    usage: "Default hover, focus, and active navigation feedback.",
+  },
+  {
+    name: "Component reveal",
+    className: "duration-300 ease-out",
+    value: "300ms",
+    usage: "Accordion panels, button padding, and contained UI transitions.",
+  },
+  {
+    name: "Page atmosphere",
+    className: "duration-700 ease-out",
+    value: "700ms",
+    usage: "Large background-color transitions that should feel calm, not decorative.",
+  },
+  {
+    name: "Sequential delay",
+    className: "transitionDelay",
+    value: "45ms steps",
+    usage: "Small cascades for mobile navigation and grouped menu reveals.",
   },
 ];
 
@@ -209,7 +314,7 @@ export const genomePrinciples = [
   {
     title: "Reuse before reinvention",
     description:
-      "Repeated sections become reusable patterns so new portfolio pages can scale without drifting into one-off layouts.",
+      "Repeated sections become reusable structures so new portfolio pages can scale without drifting into one-off layouts.",
   },
   {
     title: "Product stories need visual systems",
@@ -228,33 +333,38 @@ export const genomeFoundations = [
     title: "Color",
     specimen: "White, dark ink, one accent, and one optional soft surface.",
     detail:
-      "Genome uses dark ink for text, white for the page, purple for identity, and a soft surface only where separation needs more than whitespace.",
+      "Genome uses dark ink for text, white for the page, purple for identity, and a soft surface only where separation needs more than whitespace, not borders.",
   },
   {
     title: "Spacing",
     specimen: "Generous sections, compact specimens, and enough air for complex ideas.",
     detail: "Spacing separates narrative moves so case studies can be scanned without feeling sparse.",
+    status: "in progress",
   },
   {
     title: "Shadow",
     specimen: "Soft elevation replaces separator lines and card outlines.",
     detail:
       "Genome uses one quiet editorial shadow to separate modules without adding visible rules.",
+    status: "in progress",
   },
   {
     title: "Radius",
     specimen: "Pill actions, soft system cards, and rounded portfolio modules.",
     detail: "Shape language makes the site feel approachable while keeping the editorial frame precise.",
+    status: "in progress",
   },
   {
     title: "Layout",
     specimen: "Container-led grids with asymmetry reserved for emphasis.",
     detail: "Layouts prioritize reading order, repeatable structure, and responsive behavior.",
+    status: "in progress",
   },
   {
     title: "Motion",
     specimen: "Quiet transitions for state, focus, and navigation.",
     detail: "Motion should confirm interaction and reduce friction, not perform for its own sake.",
+    status: "in progress",
   },
 ];
 
@@ -262,157 +372,77 @@ export const genomeComponents = [
   {
     title: "Site Header",
     description: "Global portfolio navigation with source-inspired pill states, active section styling, and accessible focus behavior.",
-    status: "used",
+    status: "in progress",
+  },
+  {
+    title: "Page Navigation",
+    description: "Sticky top navigation for moving between major editorial sections on a page.",
+    status: "in progress",
+  },
+  {
+    title: "Foundations Navbar",
+    description: "Sticky side navigation for jumping between foundation specimens inside Genome.",
+    status: "in progress",
   },
   {
     title: "Site Footer",
     description: "A quiet global footer for secondary navigation, copyright, and portfolio utility links.",
-    status: "used",
+    status: "in progress",
   },
   {
     title: "Section Wrapper",
     description: "The reusable page rhythm, container, eyebrow, title, and intro structure behind editorial sections.",
-    status: "used",
+    status: "in progress",
   },
   {
     title: "Button",
     description: "Pill-shaped actions for contact, project navigation, and case-study reading paths.",
-    status: "used",
-  },
-  {
-    title: "Pill",
-    description: "Large bordered labels for capability groups, adapted from the source pill treatment.",
-    status: "used",
+    status: "in progress",
   },
   {
     title: "Card",
     description: "Contained modules for projects, quotes, comparisons, and system specimens.",
-    status: "used",
-  },
-  {
-    title: "Card Content",
-    description: "The inner content primitive used when a card needs controlled padding or custom composition.",
-    status: "used",
-  },
-  {
-    title: "Card Header",
-    description: "An available card-region primitive that is not currently used in the portfolio surfaces.",
-    status: "unused",
-  },
-  {
-    title: "Card Title",
-    description: "An available card-title primitive; current cards use custom editorial heading classes instead.",
-    status: "unused",
-  },
-  {
-    title: "Card Description",
-    description: "An available card-description primitive; current descriptions are styled directly in sections.",
-    status: "unused",
-  },
-  {
-    title: "Card Footer",
-    description: "An available card-footer primitive that is not currently used in the portfolio surfaces.",
-    status: "unused",
+    status: "in progress",
   },
   {
     title: "Badge",
-    description: "Compact metadata for project capabilities and small categorical signals.",
-    status: "used",
-  },
-  {
-    title: "Genome Status Flag",
-    description: "A compact Genome-only flag for surfacing component availability without marking every used item.",
-    status: "used",
+    description: "Metadata, status flags, and large pill labels for capability groups.",
+    status: "in progress",
   },
   {
     title: "Section Header",
     description: "Eyebrow, title, and optional intro for orienting the reader before each narrative move.",
-    status: "used",
-  },
-  {
-    title: "Editorial Hero",
-    description: "The homepage opening argument with oversized editorial type and a single primary contact path.",
-    status: "used",
-  },
-  {
-    title: "Partner Logo Strip",
-    description: "A partner-logo row for source assets without card borders or shadows.",
-    status: "used",
-  },
-  {
-    title: "Stats Strip",
-    description: "A compact way to show experience, adoption, or measurement signals without fake precision.",
-    status: "used",
+    status: "in progress",
   },
   {
     title: "Project Card",
     description: "A case-study preview that balances project framing, capabilities, and impact signals.",
-    status: "used",
+    status: "in progress",
   },
   {
-    title: "Project Showcase",
-    description: "The responsive project grid that arranges featured project cards into a portfolio gallery.",
-    status: "used",
+    title: "Homepage Project Card",
+    description: "The full homepage project-card treatment used for featured case-study entry points.",
+    status: "in progress",
   },
   {
     title: "Quote Block",
     description: "A contained testimonial or editorial claim with enough structure to support evidence.",
-    status: "used",
-  },
-  {
-    title: "Capability Grid",
-    description: "A numbered capability-card grid reserved for deeper service or skills pages.",
-    status: "unused",
+    status: "in progress",
   },
   {
     title: "Focus List",
     description: "A lightweight wrap list for homepage capabilities when cards would feel too heavy.",
-    status: "used",
+    status: "in progress",
   },
   {
     title: "CTA",
     description: "A quiet closing module that connects the story to a clear next action.",
-    status: "used",
+    status: "in progress",
   },
   {
     title: "FAQ / Accordion",
     description: "Progressive disclosure for process details, collaboration models, and project constraints.",
-    status: "used",
-  },
-];
-
-export const genomePatterns = [
-  {
-    title: "Hero",
-    description: "States the product-design argument quickly and gives the reader a clear path into the work.",
-  },
-  {
-    title: "Case Study Intro",
-    description: "Sets context, role, constraints, and the sanitized project frame before details appear.",
-  },
-  {
-    title: "Problem / Solution section",
-    description: "Separates the product tension from the design response so decisions stay legible.",
-  },
-  {
-    title: "Complexity Diagram",
-    description: "Turns systems, states, workflows, and dependencies into NDA-safe abstract visuals.",
-  },
-  {
-    title: "Impact Section",
-    description: "Shows measurement signals, adoption evidence, or qualitative outcomes without inventing metrics.",
-  },
-  {
-    title: "Before / After section",
-    description: "Compares product understanding, workflow clarity, and system maturity before and after the work.",
-  },
-  {
-    title: "Design System section",
-    description: "Explains reusable components, tokens, governance, and adoption logic inside a case study.",
-  },
-  {
-    title: "Closing CTA",
-    description: "Ends the page with a concise reason to start a conversation.",
+    status: "in progress",
   },
 ];
 
@@ -433,7 +463,7 @@ export const genomeComparison = [
   },
   {
     title: "Genome",
-    description: "Reusable foundations, components, patterns, and content rules guide every page.",
+    description: "Reusable foundations, components, and content rules guide every page.",
   },
   {
     title: "After",

@@ -16,7 +16,7 @@ export function CTASection() {
             challenges, let&apos;s connect.
           </p>
           <div className="mt-hero">
-            <Button asChild>
+            <Button asChild size="xl">
               <Link href="https://www.linkedin.com/in/tiborlovas/">Let&apos;s Connect</Link>
             </Button>
           </div>

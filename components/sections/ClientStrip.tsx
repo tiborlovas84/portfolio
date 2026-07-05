@@ -1,22 +1,30 @@
 import { clientLogos } from "@/content/projects";
 import Image from "next/image";
 
+const logoClassByName: Record<string, string> = {
+  "Partner logo": "w-[5.75rem]",
+  "Sotheby’s": "w-[9.75rem]",
+  AAA: "w-[5.75rem]",
+  Daimler: "w-[10.25rem]",
+  "Mercedes-Benz": "w-[4.125rem]",
+  NASA: "w-[9.25rem]",
+  Aptatek: "w-[10.25rem]",
+};
+
 export function ClientStrip() {
   return (
-    <div className="mx-auto grid w-full max-w-xl justify-items-center gap-x-micro gap-y-0 sm:grid-cols-2 lg:grid-cols-3">
-      {clientLogos.map((client, index) => (
+    <div className="mx-auto flex w-full max-w-2xl flex-wrap items-center justify-center gap-x-card gap-y-content p-content">
+      {clientLogos.map((client) => (
         <div
           key={client.src}
-          className={`flex min-h-20 items-center justify-center ${
-            index === clientLogos.length - 1 ? "sm:col-span-2 lg:col-span-3" : ""
-          }`}
+          className="flex min-h-16 items-center justify-center"
         >
           <Image
             src={client.src}
             alt={client.name}
-            width={160}
-            height={64}
-            className="max-h-12 max-w-36 object-contain"
+            width={220}
+            height={96}
+            className={`${logoClassByName[client.name]} h-auto max-h-16 object-contain`}
           />
         </div>
       ))}

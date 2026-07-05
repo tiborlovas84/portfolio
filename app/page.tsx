@@ -5,10 +5,9 @@ import { EditorialHero } from "@/components/sections/EditorialHero";
 import { FocusList } from "@/components/sections/FocusList";
 import { PageBackgroundTransition } from "@/components/sections/PageBackgroundTransition";
 import { ProcessSection } from "@/components/sections/ProcessSection";
-import { ProjectShowcase } from "@/components/sections/ProjectShowcase";
 import { Section } from "@/components/sections/Section";
+import { SourceProjectsSection } from "@/components/sections/SourceProjectsSection";
 import { SuccessStoriesSection } from "@/components/sections/SuccessStoriesSection";
-import { featuredProjects } from "@/content/projects";
 
 export default function HomePage() {
   return (
@@ -16,9 +15,9 @@ export default function HomePage() {
       <div data-page-hero>
         <EditorialHero />
       </div>
-      <section className="py-section">
+      <section className="py-hero md:py-section">
         <div className="container">
-          <div className="grid gap-hero md:grid-cols-[0.48fr_0.52fr] md:items-center">
+          <div className="grid gap-card md:grid-cols-[0.48fr_0.52fr] md:items-center md:gap-hero">
             <h2 className="max-w-3xl text-4 font-bold md:pl-hero">
               I help teams perform, from small startups to large Fortune 500 companies.
             </h2>
@@ -26,11 +25,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section id="case-studies" className="py-section">
-        <div className="container">
-          <ProjectShowcase projects={featuredProjects} />
-        </div>
-      </section>
+      <SourceProjectsSection />
       <AboutImpactSection />
       <SuccessStoriesSection />
       <Section

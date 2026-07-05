@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { CaseStudyAnchorNav } from "../../../components/case-study-anchor-nav";
+import { CaseStudyIterationTabs } from "@/components/sections/CaseStudyIterationTabs";
+import { PageBackgroundTransition } from "@/components/sections/PageBackgroundTransition";
 import { ShimmerDotsBackground } from "../../../components/shimmer-dots-background";
-import { SiteContactCta, SiteFooter, SiteHeader } from "../../../components/site-shell";
 import {
   AreaCard,
   CardGrid,
@@ -25,7 +25,6 @@ import {
   problems,
   projectMeta,
   role,
-  sectionNav,
   system,
   systemPatterns,
   systemProof,
@@ -40,10 +39,9 @@ export const metadata: Metadata = {
 
 export default function InternalPlatformCaseStudy() {
   return (
-    <>
-      <SiteHeader />
-      <main className={styles.page}>
-        <section className={styles.hero} id="top">
+    <PageBackgroundTransition>
+      <div className={styles.page}>
+        <section className={styles.hero} id="top" data-page-hero>
           <ShimmerDotsBackground className={styles.shimmerCanvas} />
           <div className={styles.container}>
             <div className={styles.pills}>
@@ -95,12 +93,7 @@ export default function InternalPlatformCaseStudy() {
           </div>
         </section>
 
-        <CaseStudyAnchorNav
-          className={styles.anchorNav}
-          containerClassName={styles.container}
-          items={sectionNav}
-          menuClassName={styles.anchorMenu}
-        />
+        <CaseStudyIterationTabs currentHref="/case-study/internal-platform" />
 
         <Section id="overview" eyebrow="Overview" title="This was not just a UI refresh.">
           <div className={styles.prose}>
@@ -258,9 +251,7 @@ export default function InternalPlatformCaseStudy() {
             </p>
           </div>
         </section>
-      </main>
-      <SiteContactCta className={styles.contactCta} />
-      <SiteFooter />
-    </>
+      </div>
+    </PageBackgroundTransition>
   );
 }

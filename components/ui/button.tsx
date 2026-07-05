@@ -15,7 +15,7 @@ const buttonVariants = cva(
         default: "border-[0.1875rem] px-card py-content text-7 font-semibold hover:px-loose",
         sm: "border px-content py-micro text-8",
         lg: "px-card py-compact text-7 hover:px-loose",
-        xl: "px-hero py-card text-4 font-semibold hover:px-hero-lg md:px-hero-lg md:py-loose md:hover:px-[6rem]",
+        xl: "border-[clamp(0.25rem,0.45vw,0.375rem)] px-hero py-card text-4 font-semibold hover:px-hero-lg md:px-hero-lg md:py-loose md:hover:px-[6rem]",
         "2xl": "px-hero py-card text-5 font-semibold hover:px-hero-lg",
         icon: "size-11 border",
       },
